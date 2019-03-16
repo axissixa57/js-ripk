@@ -87,7 +87,7 @@ switch(x)
     console.log( lessThanSix() );
     break;
     case 5:
-    console.log( arrOfStudents('Привет ребята. Давайте отметимся. Валера есть? Ира? Настя? Сергей? Хорошо. Тема нашего занятия следующая...') );
+    console.log( arrOfStudents('Привет ребята. Валера есть? Ира? Настя? Сергей?') );
     break;
     case 6:
     let randomDate = new Date("March 1, 2019 23:15:20");
