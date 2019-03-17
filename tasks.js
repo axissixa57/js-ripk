@@ -69,8 +69,7 @@ function randomSort(arr) {
 }
 
 
-
-let x = 7;
+let x;
 
 switch(x) 
 {
@@ -113,3 +112,11 @@ switch(x)
 //     let now = new Date();
 //     console.log(`${now.getDate()} ${now.getMonth()} ${now.getFullYear()}`);
 // }
+// ---------------------------------------------
+// var arr = [1,2,3,4,5,6,7,8,1,2,3,4,9,10];
+// for(var i = 0; i < arr.length; i++)
+// {
+//     while(arr[i] < 6)
+//         arr.splice(i,1);
+// }
+// console.log(arr);
