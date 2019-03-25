@@ -1,9 +1,9 @@
 function sum(a, b) { return a + b; }
-
+//---------------------------------------------------------
 function getType(type) {
     return typeof type;
 }
-
+//---------------------------------------------------------
 function createArray(num = 10) {
     let arr = new Array(num);
 
@@ -15,7 +15,7 @@ function createArray(num = 10) {
 
     return arr;
 }
-
+//---------------------------------------------------------
 function lessThanSix() {
     let arr = createArray(5);
     console.log(arr);
@@ -24,7 +24,7 @@ function lessThanSix() {
     let procent = 100*newArr.length/arr.length;
     return procent;
 }
-
+//---------------------------------------------------------
 function arrOfStudents (str) {
     let template = ['Настя','Ира','Катя','Сергей','Маша','Стас','Ваня','Миша','Женя','Саша','Денис','Дима','Коля','Паша','Надежда','Таня','Валера'];
     let newArr = [];
@@ -36,7 +36,7 @@ function arrOfStudents (str) {
 
     return newArr;
 }
-
+//---------------------------------------------------------
 function daysBetween(date) {
     let now = new Date(); // current time - Sat Mar 16 2019 13:04:34 GMT+0300 (Moscow Standard Time) {}
     if(date > now)
@@ -56,20 +56,21 @@ function daysBetween(date) {
 
     return Math.floor(days);
 }
-
+//---------------------------------------------------------
 function randomSort(arr) {
 
     function compareRandom(a, b) {
         return Math.random() - 0.5;
     }
-
     arr.sort(compareRandom);
+    
     for(let i = 0; i < arr.length; i++)
         console.log(`${i+1} - ${arr[i]}`);
 }
-
-
-let x;
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+let x = 7;
 
 switch(x) 
 {
@@ -99,20 +100,21 @@ switch(x)
     default:
     console.log("Enter the value of the existing task number in the variable 'x'!");
 }
-
-// ---------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
+//---------------------------------------------------------
 // function onlyUnique(value, index, arr) { 
 //     return arr.indexOf(value) === index;
 // }
 // var a = ['a','a','a','a'];
 // var unique = a.filter( onlyUnique );
 // console.log(unique);
-// ---------------------------------------------
+//---------------------------------------------------------
 // function countOfDays() { 
 //     let now = new Date();
 //     console.log(`${now.getDate()} ${now.getMonth()} ${now.getFullYear()}`);
 // }
-// ---------------------------------------------
+//---------------------------------------------------------
 // var arr = [1,2,3,4,5,6,7,8,1,2,3,4,9,10];
 // for(var i = 0; i < arr.length; i++)
 // {
