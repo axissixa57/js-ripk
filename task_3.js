@@ -134,7 +134,7 @@ function addBody(obj, doors, color, glass, bumper, interior) {
     return obj;
 }
 
-function manufactureCar_sep(obj)
+function manufactureCar_sep()
 {
     addEngine(obj, "AMR-250-90", "AC", 150, 210, 280);
     addBattery(obj, "40S-10P", 400, 24.5, 267);
@@ -143,18 +143,24 @@ function manufactureCar_sep(obj)
     addConverter(obj, "DC-DC", " 0-3 Amps / 120 volts", "0-30 Amps / 12 volts", "Selectabel");
     addWheels(obj, "M700", "standart", 15, "265/45-R20", "20/20");
     addBody(obj, 4, "red", "laminated", "S3E6-7", "black");
-    return obj;
+}
+
+function manufactureCar_chain()
+{
+
 }
 
 let Factory = {};
-let result = manufactureCar_sep(Factory);
+let result = Factory.manufactureCar = manufactureCar_sep();
 
-for(key in result)
-{
-    //console.log(`Ключ: ${key} значение: ${plusEngine[key]}`)
-    console.log(key);
-    console.log(result[key]);
-}
+console.log(result);
+
+// for(key in result)
+// {
+//     //console.log(`Ключ: ${key} значение: ${plusEngine[key]}`)
+//     console.log(key);
+//     console.log(result[key]);
+// }
 
 
 
