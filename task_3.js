@@ -53,114 +53,138 @@ constlibrary = [{
     libraryID: 2748
 }];
 //---------------------------------------------------------
-function addEngine(obj, model, type, weight, power, torque) {
+function addEngine(obj) {
     obj.engine = {
-        model: model,
-        type: type,
-        weight: weight,
-        power: power,
-        torque: torque
+        model: "AMR-250-90",
+        type: "AC",
+        weight: 150,
+        power: 210,
+        torque: 280,
+        defect: function() { return Math.random() }
     };
 
     return obj;
 }
 
-function addBattery(obj, config, cells, energy, mass) {
+function addBattery(obj) {
     obj.battery = {
-        config: config,
-        cells: cells,
-        energy: energy,
-        mass: mass
+        config: "40S-10P",
+        cells: 400,
+        energy: 24.5,
+        mass: 267
     };
 
     return obj;
 }
 
-function addController(obj, model, current, power, voltage, prechargeCircuit) {
+function addController(obj) {
     obj.controller = {
-        model: model,
-        current: current,
-        power: power,
-        voltage: voltage,
-        prechargeCircuit: prechargeCircuit
+        model: "Evnetics Shiva",
+        current: 3000,
+        power: 1.275,
+        voltage: "8-425 Volts",
+        prechargeCircuit: true
     };
 
     return obj;
 }
 
-function addCharger(obj, model, input, output, algorithm, efficiency) {
+function addCharger(obj) {
     obj.charger = {
-        model: model,
-        input: input,
-        output: output,
-        algorithm: algorithm,
-        efficiency: efficiency
+        model: "Elcon PFC5000 Charger",
+        input: "0.2 to 30A AC",
+        output: "16A to 80A DC",
+        algorithm: "programmable",
+        efficiency: 92
     };
 
     return obj;
 }
 
-function addConverter(obj, type, inputCurrent, outputCurrent, isolated) {
+function addConverter(obj) {
     obj.converter = {
-        type: type,
-        inputCurrent: inputCurrent,
-        outputCurrent: outputCurrent,
-        isolated: isolated
+        type: "DC-DC",
+        inputCurrent: "0-3 Amps / 120 volts",
+        outputCurrent: "0-30 Amps / 12 volts",
+        isolated: "Selectabel"
     };
 
     return obj;
 }
 
-function addWheels(obj, motor, drumBrake, rim, tire, size) {
+function addWheels(obj) {
     obj.wheels = {
-        motor: motor,
-        drumBrake: drumBrake,
-        rim: rim,
-        tire: tire,
-        size: size
+        motor: "M700",
+        drumBrake: "standart",
+        rim: 15,
+        tire: "265/45-R20",
+        size: "20/20"
     };
 
     return obj;
 }
 
-function addBody(obj, doors, color, glass, bumper, interior) {
+function addBody(obj) {
     obj.body = {
-        doors: doors,
-        color: color,
-        glass: glass,
-        bumper: bumper,
-        interior: interior
+        doors: 4,
+        color: "red",
+        glass: "laminated",
+        bumper: "S3E6-7",
+        interior: "black"
     };
     return obj;
 }
 
-function manufactureCar_sep()
-{
-    addEngine(obj, "AMR-250-90", "AC", 150, 210, 280);
-    addBattery(obj, "40S-10P", 400, 24.5, 267);
-    addController(obj, "Evnetics Shiva", 3000, 1.275, "8-425 Volts", true);
-    addCharger(obj, "Elcon PFC5000 Charger", "0.2 to 30A AC", "16A to 80A DC", "programmable", 92);
-    addConverter(obj, "DC-DC", " 0-3 Amps / 120 volts", "0-30 Amps / 12 volts", "Selectabel");
-    addWheels(obj, "M700", "standart", 15, "265/45-R20", "20/20");
-    addBody(obj, 4, "red", "laminated", "S3E6-7", "black");
+function manufactureCar_sep() {
+    let obj = {};
+    addEngine(obj);
+    addBattery(obj);
+    addController(obj);
+    addCharger(obj);
+    addConverter(obj);
+    addWheels(obj);
+    addBody(obj);
+    return obj;
 }
 
-function manufactureCar_chain()
-{
+function manufactureCar_chain() {
+    return addBody(addWheels(addConverter(addCharger(addController(addBattery(addEngine({})))))));
+}
+//---------------------------------------------------------
+function controlQuality(obj) {
 
+    return true;
 }
 
-let Factory = {};
-let result = Factory.manufactureCar = manufactureCar_sep();
+console.log(Math.random().toFixed(1));
 
-console.log(result);
 
-// for(key in result)
-// {
-//     //console.log(`Ключ: ${key} значение: ${plusEngine[key]}`)
-//     console.log(key);
-//     console.log(result[key]);
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -195,13 +219,34 @@ switch (x) {
         break;
     case 3:
         console.log("Sort by ascending year");
-        let sortByAscendingYear = constlibrary.map(v => v).sort((a,b) => { return a.year - b.year }).forEach(element => {console.log(element)});
+        let sortByAscendingYear = constlibrary.map(v => v).sort((a, b) => {
+            return a.year - b.year
+        }).forEach(element => {
+            console.log(element)
+        });
         console.log("Sort by descending year");
-        let sortByDescendingYear = constlibrary.map(v => v).sort((a,b) => { return b.year - a.year }).forEach(element => {console.log(element)});
+        let sortByDescendingYear = constlibrary.map(v => v).sort((a, b) => {
+            return b.year - a.year
+        }).forEach(element => {
+            console.log(element)
+        });
         console.log("Sort by ascending pages");
-        let sortByAscendingPages = constlibrary.map(v => v).sort((a,b) => { return a.pages - b.pages }).forEach(element => {console.log(element)});
+        let sortByAscendingPages = constlibrary.map(v => v).sort((a, b) => {
+            return a.pages - b.pages
+        }).forEach(element => {
+            console.log(element)
+        });
         console.log("Sort by autor");
-        let sortByAuthor = constlibrary.map(v => v).sort((a,b) => { return a.author > b.author }).forEach(element => {console.log(element)});
+        let sortByAuthor = constlibrary.map(v => v).sort((a, b) => {
+            return a.author > b.author
+        }).forEach(element => {
+            console.log(element)
+        });
+        break;
+    case 4:
+        let Factory = {};
+        Factory.manufactureCar = manufactureCar_sep;
+        console.log(manufactureCar_chain());
         break;
     default:
         //console.log("Enter the value of the existing task number in the variable 'x'!");
