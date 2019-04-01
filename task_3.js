@@ -60,19 +60,42 @@ function addEngine(obj) {
         weight: 150,
         power: 210,
         torque: 280,
-        defect: function() { return Math.random() }
+        status: "new"
     };
+
+    let chance = Math.random().toFixed(2);
+
+    if (chance <= 0.02)
+        obj.engine.status = "defect";
+    // else if(chance < 0.5 && chance > 0.2)
+    //     obj.engine.status = "test";
+
+    // for(let key in obj)
+    // {
+    //     for(let key1 in obj[key])
+    //     {
+    //         console.log(`${key1} - ${obj[key][key1]}`);
+    //     }
+    // }
 
     return obj;
 }
+
+//console.log(addEngine({}));
 
 function addBattery(obj) {
     obj.battery = {
         config: "40S-10P",
         cells: 400,
         energy: 24.5,
-        mass: 267
+        mass: 267,
+        status: "new"
     };
+
+    let chance = Math.random().toFixed(2);
+
+    if (chance <= 0.02)
+        obj.battery.status = "defect";
 
     return obj;
 }
@@ -83,8 +106,14 @@ function addController(obj) {
         current: 3000,
         power: 1.275,
         voltage: "8-425 Volts",
-        prechargeCircuit: true
+        prechargeCircuit: true,
+        status: "new"
     };
+
+    let chance = Math.random().toFixed(2);
+
+    if (chance <= 0.02)
+        obj.controller.status = "defect";
 
     return obj;
 }
@@ -95,8 +124,14 @@ function addCharger(obj) {
         input: "0.2 to 30A AC",
         output: "16A to 80A DC",
         algorithm: "programmable",
-        efficiency: 92
+        efficiency: 92,
+        status: "new"
     };
+
+    let chance = Math.random().toFixed(2);
+
+    if (chance <= 0.02)
+        obj.charger.status = "defect";
 
     return obj;
 }
@@ -106,8 +141,14 @@ function addConverter(obj) {
         type: "DC-DC",
         inputCurrent: "0-3 Amps / 120 volts",
         outputCurrent: "0-30 Amps / 12 volts",
-        isolated: "Selectabel"
+        isolated: "Selectabel",
+        status: "new"
     };
+
+    let chance = Math.random().toFixed(2);
+
+    if (chance <= 0.02)
+        obj.converter.status = "defect";
 
     return obj;
 }
@@ -118,8 +159,14 @@ function addWheels(obj) {
         drumBrake: "standart",
         rim: 15,
         tire: "265/45-R20",
-        size: "20/20"
+        size: "20/20",
+        status: "new"
     };
+
+    let chance = Math.random().toFixed(2);
+
+    if (chance <= 0.02)
+        obj.wheels.status = "defect";
 
     return obj;
 }
@@ -130,8 +177,15 @@ function addBody(obj) {
         color: "red",
         glass: "laminated",
         bumper: "S3E6-7",
-        interior: "black"
+        interior: "black",
+        status: "new"
     };
+
+    let chance = Math.random().toFixed(2);
+
+    if (chance <= 0.02)
+        obj.body.status = "defect";
+
     return obj;
 }
 
@@ -152,11 +206,33 @@ function manufactureCar_chain() {
 }
 //---------------------------------------------------------
 function controlQuality(obj) {
-
+    for(let key in obj)
+    {
+        //console.log(`${key} - ${obj[key]}`);
+        for(let subKey in obj[key])
+        {
+            //console.log(`${subKey} - ${obj[key][subKey]}`);
+            if(subKey == "status")
+            {
+                if(obj[key][subKey] == "defect")
+                    return false;
+            }
+        }
+    }
     return true;
 }
 
-console.log(Math.random().toFixed(1));
+function statisticalAnalysis(x) {
+    let defectCars = 0;
+    for(let i = 0; i < x; i++) {
+        if(controlQuality(manufactureCar_sep()) == false)
+        defectCars++;   
+    }
+    
+    return defectCars * 100 / x;
+}
+
+console.log( statisticalAnalysis(500) );
 
 
 
@@ -192,7 +268,7 @@ console.log(Math.random().toFixed(1));
 //---------------------------------------------------------
 //---------------------------------------------------------
 //---------------------------------------------------------
-let x = 3;
+let x;
 
 switch (x) {
     case 1:
