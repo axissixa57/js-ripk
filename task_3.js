@@ -220,7 +220,7 @@ function statisticalAnalysis(x) {
     return defectCars * 100 / x;
 }
 //---------------------------------------------------------
-function addEngine() {
+function addEngine1() {
     let engine = {
         model: "AMR-250-90",
         type: "AC",
@@ -247,7 +247,7 @@ function addEngine() {
     return true;
 }
 
-function addBattery() {
+function addBattery1() {
     let battery = {
         config: "40S-10P",
         cells: 400,
@@ -273,7 +273,7 @@ function addBattery() {
     return true;
 }
 
-function addController() {
+function addController1() {
     let controller = {
         model: "Evnetics Shiva",
         current: 3000,
@@ -300,7 +300,7 @@ function addController() {
     return true;
 }
 
-function addCharger() {
+function addCharger1() {
     let charger = {
         model: "Elcon PFC5000 Charger",
         input: "0.2 to 30A AC",
@@ -327,7 +327,7 @@ function addCharger() {
     return true;
 }
 
-function addConverter() {
+function addConverter1() {
     let converter = {
         type: "DC-DC",
         inputCurrent: "0-3 Amps / 120 volts",
@@ -353,7 +353,7 @@ function addConverter() {
     return true;
 }
 
-function addWheels() {
+function addWheels1() {
     let wheels = {
         motor: "M700",
         drumBrake: "standart",
@@ -380,7 +380,7 @@ function addWheels() {
     return true;
 }
 
-function addBody() {
+function addBody1() {
     let body = {
         doors: 4,
         color: "red",
@@ -439,7 +439,7 @@ function addBody() {
 //---------------------------------------------------------
 //---------------------------------------------------------
 //---------------------------------------------------------
-let x;
+let x = 5;
 
 switch (x) {
     case 1:
@@ -493,7 +493,7 @@ switch (x) {
     case 4:
         let Factory = {};
         Factory.manufactureCar = manufactureCar_sep;
-        console.log(manufactureCar_chain());
+        console.log(Factory.manufactureCar());
         break;
     case 5:
         console.log(`Reject rate of production of 500 cars = ${statisticalAnalysis(500)} percent`);
