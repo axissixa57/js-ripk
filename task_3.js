@@ -220,192 +220,243 @@ function statisticalAnalysis(x) {
     return defectCars * 100 / x;
 }
 //---------------------------------------------------------
-function addEngine1() {
-    let engine = {
-        model: "AMR-250-90",
-        type: "AC",
-        weight: 150,
-        power: 210,
-        torque: 280,
-        status: "new"
-    };
+function manufactureCar() {
+    let newModel = {};
 
-    let chance = Math.random().toFixed(2);
+    function addEngine1() {
+        newModel.engine = {
+            model: "AMR-250-90",
+            type: "AC",
+            weight: 150,
+            power: 210,
+            torque: 280,
+            status: "new"
+        };
 
-    if (chance <= 0.02)
-        engine.status = "defect";
-
-    for(let key in engine)
-    {
-        if(key == "status")
+        let chance = Math.random().toFixed(2);
+    
+        if (chance <= 0.02)
+            newModel.engine.status = "defect";
+    
+        for(let key in newModel.engine)
         {
-            if(engine[key] == "defect")
-                return false;
+            if(key == "status")
+            {
+                if(newModel.engine[key] == "defect")
+                    return false;
+            }
+        }
+    
+        return true;
+    }
+    function addBattery1() {
+        newModel.battery = {
+            config: "40S-10P",
+            cells: 400,
+            energy: 24.5,
+            mass: 267,
+            status: "new"
+        };
+
+        let chance = Math.random().toFixed(2);
+    
+        if (chance <= 0.02)
+            newModel.battery.status = "defect";
+    
+        for(let key in newModel.battery)
+        {
+            if(key == "status")
+            {
+                if(newModel.battery[key] == "defect")
+                    return false;
+            }
+        }
+    
+        return true;
+    }
+    function addController1() {
+        newModel.controller = {
+            model: "Evnetics Shiva",
+            current: 3000,
+            power: 1.275,
+            voltage: "8-425 Volts",
+            prechargeCircuit: true,
+            status: "new"
+        };
+    
+        let chance = Math.random().toFixed(2);
+    
+        if (chance <= 0.02)
+            newModel.controller.status = "defect";
+    
+        for(let key in newModel.controller)
+        {
+            if(key == "status")
+            {
+                if(newModel.controller[key] == "defect")
+                    return false;
+            }
+        }
+    
+        return true;
+    }
+    function addCharger1() {
+        newModel.charger = {
+            model: "Elcon PFC5000 Charger",
+            input: "0.2 to 30A AC",
+            output: "16A to 80A DC",
+            algorithm: "programmable",
+            efficiency: 92,
+            status: "new"
+        };
+    
+        let chance = Math.random().toFixed(2);
+    
+        if (chance <= 0.02)
+            newModel.charger.status = "defect";
+    
+        for(let key in newModel.charger)
+        {
+            if(key == "status")
+            {
+                if(newModel.charger[key] == "defect")
+                    return false;
+            }
+        }
+    
+        return true;
+    }
+    function addConverter1() {
+        newModel.converter = {
+            type: "DC-DC",
+            inputCurrent: "0-3 Amps / 120 volts",
+            outputCurrent: "0-30 Amps / 12 volts",
+            isolated: "Selectabel",
+            status: "new"
+        };
+    
+        let chance = Math.random().toFixed(2);
+    
+        if (chance <= 0.02)
+            newModel.converter.status = "defect";
+    
+        for(let key in newModel.converter)
+        {
+            if(key == "status")
+            {
+                if(newModel.converter[key] == "defect")
+                    return false;
+            }
+        }
+    
+        return true;
+    }
+    function addWheels1() {
+        newModel.wheels = {
+            motor: "M700",
+            drumBrake: "standart",
+            rim: 15,
+            tire: "265/45-R20",
+            size: "20/20",
+            status: "new"
+        };
+    
+        let chance = Math.random().toFixed(2);
+    
+        if (chance <= 0.02)
+            newModel.wheels.status = "defect";
+    
+        for(let key in newModel.wheels)
+        {
+            if(key == "status")
+            {
+                if(newModel.wheels[key] == "defect")
+                    return false;
+            }
+        }
+    
+        return true;
+    }
+    function addBody1() {
+        newModel.body = {
+            doors: 4,
+            color: "red",
+            glass: "laminated",
+            bumper: "S3E6-7",
+            interior: "black",
+            status: "new"
+        };
+    
+        let chance = Math.random().toFixed(2);
+    
+        if (chance <= 0.02)
+            newModel.body.status = "defect";
+    
+        for(let key in newModel.body)
+        {
+            if(key == "status")
+            {
+                if(newModel.body[key] == "defect")
+                    return false;
+            }
+        }
+    
+        return true;
+    }
+
+    while(true) {
+        if(addEngine1() == true) break; 
+    }
+    while(true) {
+        if(addBattery1() == true) break;
+    }
+    while(true) {
+        if(addController1() == true) break;
+    }
+    while(true) {
+        if(addCharger1() == true) break;
+    }
+    while(true) {
+        if(addConverter1() == true) break;
+    }
+    while(true) {
+        if(addWheels1() == true) break;
+    }
+    while(true) {
+        if(addBody1() == true) break;
+    }
+
+    let defectCars = 0;
+
+    for(let i = 0; i < 500; i++) {
+        for(let key in newModel)
+        {
+            for(let subKey in newModel[key])
+            {
+                if(subKey == "status") {
+                    if(newModel[key][subKey] == "defect")
+                        defectCars++;
+                }
+            }
         }
     }
 
-    return true;
+    let result = defectCars * 100 / 500;
+    console.log(`Reject rate of production of 500 cars = ${result} percent`);
+
+    // for(let key in newModel)
+    // {
+    //     //console.log(`${key} - ${newModel[key]}`);
+    //     for(let subKey in newModel[key])
+    //     {
+    //         console.log(`${subKey} - ${newModel[key][subKey]}`);
+    //     }
+    // }
+
+    return newModel;
 }
 
-function addBattery1() {
-    let battery = {
-        config: "40S-10P",
-        cells: 400,
-        energy: 24.5,
-        mass: 267,
-        status: "new"
-    };
-
-    let chance = Math.random().toFixed(2);
-
-    if (chance <= 0.02)
-        battery.status = "defect";
-
-    for(let key in battery)
-    {
-        if(key == "status")
-        {
-            if(battery[key] == "defect")
-                return false;
-        }
-    }
-
-    return true;
-}
-
-function addController1() {
-    let controller = {
-        model: "Evnetics Shiva",
-        current: 3000,
-        power: 1.275,
-        voltage: "8-425 Volts",
-        prechargeCircuit: true,
-        status: "new"
-    };
-
-    let chance = Math.random().toFixed(2);
-
-    if (chance <= 0.02)
-        controller.status = "defect";
-
-    for(let key in controller)
-    {
-        if(key == "status")
-        {
-            if(controller[key] == "defect")
-                return false;
-        }
-    }
-
-    return true;
-}
-
-function addCharger1() {
-    let charger = {
-        model: "Elcon PFC5000 Charger",
-        input: "0.2 to 30A AC",
-        output: "16A to 80A DC",
-        algorithm: "programmable",
-        efficiency: 92,
-        status: "new"
-    };
-
-    let chance = Math.random().toFixed(2);
-
-    if (chance <= 0.02)
-        charger.status = "defect";
-
-    for(let key in charger)
-    {
-        if(key == "status")
-        {
-            if(charger[key] == "defect")
-                return false;
-        }
-    }
-
-    return true;
-}
-
-function addConverter1() {
-    let converter = {
-        type: "DC-DC",
-        inputCurrent: "0-3 Amps / 120 volts",
-        outputCurrent: "0-30 Amps / 12 volts",
-        isolated: "Selectabel",
-        status: "new"
-    };
-
-    let chance = Math.random().toFixed(2);
-
-    if (chance <= 0.02)
-        converter.status = "defect";
-
-    for(let key in converter)
-    {
-        if(key == "status")
-        {
-            if(converter[key] == "defect")
-                return false;
-        }
-    }
-
-    return true;
-}
-
-function addWheels1() {
-    let wheels = {
-        motor: "M700",
-        drumBrake: "standart",
-        rim: 15,
-        tire: "265/45-R20",
-        size: "20/20",
-        status: "new"
-    };
-
-    let chance = Math.random().toFixed(2);
-
-    if (chance <= 0.02)
-        wheels.status = "defect";
-
-    for(let key in wheels)
-    {
-        if(key == "status")
-        {
-            if(wheels[key] == "defect")
-                return false;
-        }
-    }
-
-    return true;
-}
-
-function addBody1() {
-    let body = {
-        doors: 4,
-        color: "red",
-        glass: "laminated",
-        bumper: "S3E6-7",
-        interior: "black",
-        status: "new"
-    };
-
-    let chance = Math.random().toFixed(2);
-
-    if (chance <= 0.02)
-        body.status = "defect";
-
-    for(let key in body)
-    {
-        if(key == "status")
-        {
-            if(body[key] == "defect")
-                return false;
-        }
-    }
-
-    return true;
-}
+console.log(manufactureCar());
 
 
 
@@ -439,7 +490,7 @@ function addBody1() {
 //---------------------------------------------------------
 //---------------------------------------------------------
 //---------------------------------------------------------
-let x = 5;
+let x;
 
 switch (x) {
     case 1:
