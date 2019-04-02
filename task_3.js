@@ -456,8 +456,6 @@ function manufactureCar() {
     return newModel;
 }
 
-console.log(manufactureCar());
-
 
 
 
@@ -548,6 +546,9 @@ switch (x) {
         break;
     case 5:
         console.log(`Reject rate of production of 500 cars = ${statisticalAnalysis(500)} percent`);
+        break;
+    case 6:
+        console.log(manufactureCar());
         break;
     default:
         //console.log("Enter the value of the existing task number in the variable 'x'!");
