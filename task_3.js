@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 function eql(a, b) {
     if (a == null || typeof (a) != "object" ||
         b == null || typeof (b) != "object") {
@@ -21,7 +23,7 @@ function deleteProps(obj, ...props) {
     return obj;
 }
 //---------------------------------------------------------
-constlibrary = [{
+const constlibrary = [{
     year: 1995,
     pages: 286,
     title: "The Road Ahead",
@@ -63,7 +65,7 @@ function addEngine(obj) {
         status: "new"
     };
 
-    let chance = Math.random().toFixed(2);
+    let chance = Number.parseInt(Math.random().toFixed(2));
 
     if (chance <= 0.02)
         obj.engine.status = "defect";
@@ -483,8 +485,6 @@ function manufactureCar() {
 
 
 
-
-
 //---------------------------------------------------------
 //---------------------------------------------------------
 //---------------------------------------------------------
@@ -551,7 +551,7 @@ switch (x) {
         console.log(manufactureCar());
         break;
     default:
-        //console.log("Enter the value of the existing task number in the variable 'x'!");
+        console.log("Enter the value of the existing task number in the variable 'x'!");
 }
 //---------------------------------------------------------
 //---------------------------------------------------------
