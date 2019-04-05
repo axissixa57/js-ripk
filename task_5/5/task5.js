@@ -11,34 +11,43 @@ let person = document.getElementById("person");
 let id = 1;
 let img = document.getElementsByTagName("img");
 
-let timerId = setInterval(function () {
-
-    let obj = {
-        countOfDislikes: 0,
-        countOfLikes: 0
-    }
+function Tinder() {
+    let obj = {};
 
     const rName = Math.floor((Math.random() * 7) + 1);
     const rSurname = Math.floor((Math.random() * 7) + 1);
     person.innerHTML = `${names[rName]} ${surnames[rSurname]}`;
-    img[0].src = `https://thispersondoesnotexist.com/image?${id++}`;
+    img[0].src = `https://thispersondoesnotexist.com/image?${id}`;
+    id++;
 
     if(localStorage.getItem(localStorage.key(id))) {
         let objOfRaiting = JSON.parse(localStorage.getItem(`${id}`));
         like.innerHTML = objOfRaiting.countOfLikes;
         dislike.innerHTML = objOfRaiting.countOfDislikes;
+        obj.countOfLikes = objOfRaiting.countOfLikes;
+        obj.countOfDislikes = objOfRaiting.countOfDislikes;
+    } else {
+        obj.countOfLikes = 0;
+        obj.countOfDislikes = 0;
+        like.innerHTML = obj.countOfLikes;
+        dislike.innerHTML = obj.countOfDislikes;
     }
 
     leftSide[0].addEventListener("click", function () {
-        dislike.innerHTML = obj.countOfDislikes++;
+        obj.countOfDislikes++;
+        dislike.innerHTML = obj.countOfDislikes;
         localStorage.setItem(`${id}`, JSON.stringify(obj));
     });
 
     rightSide[0].addEventListener("click", function () {
-        like.innerHTML = obj.countOfLikes++;
+        obj.countOfLikes++;
+        like.innerHTML = obj.countOfLikes;
         localStorage.setItem(`${id}`, JSON.stringify(obj));
     });
+}
 
-    console.log(localStorage.getItem(`7`));
+Tinder();
 
+let timer = setInterval(function () {
+    Tinder();
 }, 2000);
