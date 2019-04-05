@@ -39,7 +39,7 @@ body>header {
 
 aside:first-of-type {
     background-color: #000;
-    color: #fff
+    color: #fff;
 }
 
 .header-d {
@@ -88,7 +88,12 @@ aside:first-of-type {
 .text-aside {
     padding: 0 16px;
     text-align: center;
+}
+
+.text-aside p
+{
     font-size: 7.1rem;
+    margin: 0;
 }
 
 .rating {
@@ -97,17 +102,19 @@ aside:first-of-type {
     height: 60vh;
     width: 60vh;
     margin: 20px 0;
-    border: 5px solid red;
+    /* border: 5px solid red; */
 }
 
 .left-side {
+    z-index: 10; 
     height: 60vh;
     width: 30vh;
-    border: 3px solid yellow;
+    /* border: 3px solid yellow; */
 }
 
 .right-side {
+    z-index: 10; 
     height: 60vh;
     width: 30vh;
-    border: 2px solid green;
+    /* border: 2px solid green; */
 }

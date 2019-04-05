@@ -8,10 +8,10 @@ let dislike = document.getElementById("dislike");
 let like = document.getElementById("like");
 let person = document.getElementById("person");
 
-let id = 1;
+let id = 0;
 let img = document.getElementsByTagName("img");
 
-function Tinder() {
+let timer = setInterval(function () {
     let obj = {};
 
     const rName = Math.floor((Math.random() * 7) + 1);
@@ -20,17 +20,17 @@ function Tinder() {
     img[0].src = `https://thispersondoesnotexist.com/image?${id}`;
     id++;
 
-    if(localStorage.getItem(localStorage.key(id))) {
+    if(JSON.parse(localStorage.getItem(id)) != null) {
         let objOfRaiting = JSON.parse(localStorage.getItem(`${id}`));
-        like.innerHTML = objOfRaiting.countOfLikes;
         dislike.innerHTML = objOfRaiting.countOfDislikes;
-        obj.countOfLikes = objOfRaiting.countOfLikes;
+        like.innerHTML = objOfRaiting.countOfLikes;
         obj.countOfDislikes = objOfRaiting.countOfDislikes;
+        obj.countOfLikes = objOfRaiting.countOfLikes;
     } else {
-        obj.countOfLikes = 0;
         obj.countOfDislikes = 0;
-        like.innerHTML = obj.countOfLikes;
+        obj.countOfLikes = 0;
         dislike.innerHTML = obj.countOfDislikes;
+        like.innerHTML = obj.countOfLikes;
     }
 
     leftSide[0].addEventListener("click", function () {
@@ -44,10 +44,4 @@ function Tinder() {
         like.innerHTML = obj.countOfLikes;
         localStorage.setItem(`${id}`, JSON.stringify(obj));
     });
-}
-
-Tinder();
-
-let timer = setInterval(function () {
-    Tinder();
 }, 2000);
