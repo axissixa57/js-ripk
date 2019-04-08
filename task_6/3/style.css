@@ -66,10 +66,20 @@ body > header {
 .answer {
     height: 10vh;
     width: 35vh;
-    border-bottom: 1px solid #000;
     margin: 0 auto;
     font-size: 6rem;
     font-family: 'Yeseva One';
     text-align: center;
     text-transform: uppercase;
+}
+
+#btn {
+    height: 5vh;
+    width: 15vh;
+    font-family: 'Yeseva One';
+}
+
+.post-main-area > div:last-child {
+    display: flex;
+    justify-content: center;
 }
