@@ -80,7 +80,15 @@ body > header {
     font-size: 20px;
 }
 
-.post-main-area > div:last-child {
+.post-main-area > div:nth-child(3) {
     display: flex;
     justify-content: center;
+}
+
+#points {
+    color: red;
+}
+
+#numOfWords {
+    color: blue;
 }
