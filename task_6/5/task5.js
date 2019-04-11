@@ -5,7 +5,6 @@ const points = document.getElementById("points");
 const numOfWords = document.getElementById("numOfWords");
 let td = document.getElementsByTagName('td');
 
-input[0].value.toUpperCase();
 points.innerHTML = 0;
 numOfWords.innerHTML = 0;
 
@@ -34,7 +33,6 @@ let randWord = generateWord();
 let mistakes = 0;
 console.log(randWord);
 
-
 for (let i = 0; i < td.length; i++) {
     td[i].addEventListener('click', () => {
         if (randWord.search(td[i].innerHTML) != -1) {
@@ -52,15 +50,23 @@ for (let i = 0; i < td.length; i++) {
 }
 
 button.addEventListener("click", function () {
-    if(input[0].value == randWord) {
+    if(input[0].value.toUpperCase() == randWord) {
+        for (let i = 0; i < divMainArea[0].children.length; i++) {
+            divMainArea[0].children[i].classList.add("revealed");
+        }
+        points.innerHTML = (parseInt(points.innerHTML) + 70).toString();
+        numOfWords.innerHTML = (parseInt(numOfWords.innerHTML) + 1).toString();
         alert(`Вы угадали! Количество неправильных букв = ${mistakes}`);
         mistakes = 0;
+        
+        console.log(input[0].value.length);
+    } else if(input[0].value == "") {
+        alert(`Введите слово!`);
+    } else {
+        alert(`Вы не угадали! Количество неправильных букв = ${mistakes}`);
     }
 
     if (isFullOpen()) {
-        points.innerHTML = (parseInt(points.innerHTML) + 70).toString();
-        numOfWords.innerHTML = (parseInt(numOfWords.innerHTML) + 1).toString();
-
         setTimeout(function () {
             for (let i = 0; i < divMainArea[0].children.length; i++) {
                 divMainArea[0].children[i].classList.remove("revealed");
@@ -75,11 +81,25 @@ button.addEventListener("click", function () {
             }
 
             randWord = generateWord();
+            console.log(randWord);
+            input[0].value = "";
         }, 3000);
     }
-
-    //input[0].value = "";
 });
+
+let timerId = setInterval(function () {  
+    if(isFullOpen()) {
+        //clearInterval(timerId);
+        for (let i = 0; i < divMainArea[0].children.length; i++) {
+            divMainArea[0].children[i].classList.remove("revealed");
+        }
+
+        alert(`Вы не угадали! Количество неправильных букв = ${mistakes}`);
+
+        randWord = generateWord();
+        console.log(randWord);
+    }    
+}, 2000);
 
 
 // for (let i = 0; i < td.length; i++) {
