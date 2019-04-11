@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Yeseva+One&subset=cyrillic');
-body, html {
+body, html, p {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -48,8 +48,12 @@ body > header {
     cursor: default;
 }
 
+/* post-main-area */
+
 .post-main-area {
     flex: 1;
+    display: flex;
+    justify-content: center;
     background-color: #FFE7DB;
     align-items: center;
     padding: 20px 100px;
@@ -60,16 +64,34 @@ body > header {
 }
 
 .post-main-area > div {
-    padding-bottom: 25px;
+    margin: 0 100px;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center * {
+    margin: 30px 0px;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right * {
+    margin: 10px 0px;
 }
 
 .answer {
-    height: 10vh;
-    width: 35vh;
-    margin: 0 auto;
+    height: 5vh;
+    width: 30vh;
     font-size: 6rem;
     font-family: 'Yeseva One';
-    text-align: center;
     text-transform: uppercase;
 }
 
@@ -77,12 +99,7 @@ body > header {
     height: 5vh;
     width: 15vh;
     font-family: 'Yeseva One';
-    font-size: 20px;
-}
-
-.post-main-area > div:nth-child(3) {
-    display: flex;
-    justify-content: center;
+    font-size: 30px;
 }
 
 #points {
@@ -94,19 +111,24 @@ body > header {
 }
 
 table {
-    font-size: 3rem;
+    border: 1px solid #000;
+    border-spacing: 25px;
+    width: 100%;
+    box-shadow: 0 0 70px rgba(0,0,0,0.5);
 }
 
 td {
+    border: 1px solid #000;
     background-color: #fff;
-    height: 8vh;
-    width: 8vh;
+    width: 130px;
 }
 
 .red {
     background-color: #ff0000;
+    color: #fff;
 }
 
 .green {
     background-color: #008000;
+    color: #fff;
 }

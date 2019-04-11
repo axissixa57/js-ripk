@@ -58,8 +58,6 @@ button.addEventListener("click", function () {
         numOfWords.innerHTML = (parseInt(numOfWords.innerHTML) + 1).toString();
         alert(`Вы угадали! Количество неправильных букв = ${mistakes}`);
         mistakes = 0;
-        
-        console.log(input[0].value.length);
     } else if(input[0].value == "") {
         alert(`Введите слово!`);
     } else {
@@ -87,19 +85,27 @@ button.addEventListener("click", function () {
     }
 });
 
-let timerId = setInterval(function () {  
-    if(isFullOpen()) {
-        //clearInterval(timerId);
-        for (let i = 0; i < divMainArea[0].children.length; i++) {
-            divMainArea[0].children[i].classList.remove("revealed");
-        }
+// let timerId = setInterval(function () {  
+//     if(isFullOpen()) {
+//         //clearInterval(timerId);
+//         for (let i = 0; i < divMainArea[0].children.length; i++) {
+//             divMainArea[0].children[i].classList.remove("revealed");
+//         }
 
-        alert(`Вы не угадали! Количество неправильных букв = ${mistakes}`);
+//         for (let j = 0; j < td.length; j++) {
+//             if (td[j].classList.contains("red")) {
+//                 td[j].classList.remove("red");
+//             } else if (td[j].classList.contains("green")) {
+//                 td[j].classList.remove("green");
+//             }
+//         }
 
-        randWord = generateWord();
-        console.log(randWord);
-    }    
-}, 2000);
+//         alert(`Вы не угадали! Количество неправильных букв = ${mistakes}`);
+
+//         randWord = generateWord();
+//         console.log(randWord);
+//     }    
+// }, 2000);
 
 
 // for (let i = 0; i < td.length; i++) {

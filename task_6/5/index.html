@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Поле Чудес</title>
 </head>
+
 <body>
     <header></header>
     <main class="content">
@@ -25,63 +27,68 @@
     </main>
     <section class="content">
         <div class="post-main-area">
-            <div>Угадайте слово:</div> 
-            <div><input class="answer" type="text" value=""></div>
-            <div><button id="btn">ПРОВЕРИТЬ</button></div>
-            <div>ОЧКИ:</div> 
-            <div id="points"></div> 
-            <div>Количество слов: <span id="numOfWords"></span></div> 
-            <table>
-                <tr>
-                    <td>А</td>
-                    <td>Б</td>
-                    <td>В</td>
-                    <td>Г</td>
-                    <td>Д</td>
-                </tr>
-                <tr>
-                    <td>Е</td>
-                    <td>Ё</td>
-                    <td>Ж</td>
-                    <td>З</td>
-                    <td>И</td>
-                </tr>
-                <tr>
-                    <td>Й</td>
-                    <td>К</td>
-                    <td>Л</td>
-                    <td>М</td>
-                    <td>Н</td>
-                </tr>
-                <tr>
-                    <td>О</td>
-                    <td>П</td>
-                    <td>Р</td>
-                    <td>С</td>
-                    <td>Т</td>
-                </tr>
-                <tr>
-                    <td>У</td>
-                    <td>Ф</td>
-                    <td>Х</td>
-                    <td>Ц</td>
-                    <td>Ч</td>
-                </tr>
-                <tr>
-                    <td>Ш</td>
-                    <td>Щ</td>
-                    <td>Ъ</td>
-                    <td>Ы</td>
-                    <td>Ь</td>
-                </tr>
-                <tr>
-                    <td>Э</td>
-                    <td>Ю</td>
-                    <td>Я</td>
-                </tr>
-            </table>
+            <div class="left">
+                <table>
+                    <tr>
+                        <td>А</td>
+                        <td>Б</td>
+                        <td>В</td>
+                        <td>Г</td>
+                        <td>Д</td>
+                        <td>Е</td>
+                    </tr>
+                    <tr>
+                        <td>Ё</td>
+                        <td>Ж</td>
+                        <td>З</td>
+                        <td>И</td>
+                        <td>Й</td>
+                        <td>К</td>
+                    </tr>
+                    <tr>
+                        <td>Л</td>
+                        <td>М</td>
+                        <td>Н</td>
+                        <td>О</td>
+                        <td>П</td>
+                        <td>Р</td>
+                    </tr>
+                    <tr>
+                        <td>С</td>
+                        <td>Т</td>
+                        <td>У</td>
+                        <td>Ф</td>
+                        <td>Х</td>
+                        <td>Ц</td>
+                    </tr>
+                    <tr>
+                        <td>Ч</td>
+                        <td>Ш</td>
+                        <td>Щ</td>
+                        <td>Ъ</td>
+                        <td>Ы</td>
+                        <td>Ь</td>
+                    </tr>
+                    <tr>
+                        <td>Э</td>
+                        <td>Ю</td>
+                        <td>Я</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="center">
+                <label>Угадайте слово:</label>
+                <input class="answer" type="text" value="">
+                <button id="btn">ПРОВЕРИТЬ</button>
+            </div>
+            <div class="right">
+                <p>ОЧКИ:</p>
+                <p id="points"></p>
+                <p>Количество слов: <span id="numOfWords"></span></p>
+            </div>
         </div>
     </section>
     <script src="./task5.js"></script>
 </body>
+
 </html>
