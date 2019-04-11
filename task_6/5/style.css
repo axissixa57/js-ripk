@@ -92,3 +92,21 @@ body > header {
 #numOfWords {
     color: blue;
 }
+
+table {
+    font-size: 3rem;
+}
+
+td {
+    background-color: #fff;
+    height: 8vh;
+    width: 8vh;
+}
+
+.red {
+    background-color: #ff0000;
+}
+
+.green {
+    background-color: #008000;
+}
