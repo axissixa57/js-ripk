@@ -17,7 +17,7 @@ body > header {
 }
 #page {
     flex: 1;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
