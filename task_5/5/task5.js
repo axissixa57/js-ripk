@@ -16,32 +16,34 @@ let timer = setInterval(function () {
 
     const rName = Math.floor((Math.random() * 7) + 1);
     const rSurname = Math.floor((Math.random() * 7) + 1);
-    person.innerHTML = `${names[rName]} ${surnames[rSurname]}`;
     img[0].src = `https://thispersondoesnotexist.com/image?${id}`;
-    id++;
+    img[0].addEventListener('load', () => {
+        person.innerHTML = `${names[rName]} ${surnames[rSurname]}`;
+        id++;
 
-    if(JSON.parse(localStorage.getItem(id)) != null) {
-        let objOfRaiting = JSON.parse(localStorage.getItem(`${id}`));
-        dislike.innerHTML = objOfRaiting.countOfDislikes;
-        like.innerHTML = objOfRaiting.countOfLikes;
-        obj.countOfDislikes = objOfRaiting.countOfDislikes;
-        obj.countOfLikes = objOfRaiting.countOfLikes;
-    } else {
-        obj.countOfDislikes = 0;
-        obj.countOfLikes = 0;
-        dislike.innerHTML = obj.countOfDislikes;
-        like.innerHTML = obj.countOfLikes;
-    }
+        if (JSON.parse(localStorage.getItem(id)) != null) {
+            let objOfRaiting = JSON.parse(localStorage.getItem(`${id}`));
+            dislike.innerHTML = objOfRaiting.countOfDislikes;
+            like.innerHTML = objOfRaiting.countOfLikes;
+            obj.countOfDislikes = objOfRaiting.countOfDislikes;
+            obj.countOfLikes = objOfRaiting.countOfLikes;
+        } else {
+            obj.countOfDislikes = 0;
+            obj.countOfLikes = 0;
+            dislike.innerHTML = obj.countOfDislikes;
+            like.innerHTML = obj.countOfLikes;
+        }
 
-    leftSide[0].addEventListener("click", function () {
-        obj.countOfDislikes++;
-        dislike.innerHTML = obj.countOfDislikes;
-        localStorage.setItem(`${id}`, JSON.stringify(obj));
-    });
+        leftSide[0].addEventListener("click", function () {
+            obj.countOfDislikes++;
+            dislike.innerHTML = obj.countOfDislikes;
+            localStorage.setItem(`${id}`, JSON.stringify(obj));
+        });
 
-    rightSide[0].addEventListener("click", function () {
-        obj.countOfLikes++;
-        like.innerHTML = obj.countOfLikes;
-        localStorage.setItem(`${id}`, JSON.stringify(obj));
-    });
+        rightSide[0].addEventListener("click", function () {
+            obj.countOfLikes++;
+            like.innerHTML = obj.countOfLikes;
+            localStorage.setItem(`${id}`, JSON.stringify(obj));
+        });
+    })
 }, 2000);
