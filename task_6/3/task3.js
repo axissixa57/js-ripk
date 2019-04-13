@@ -58,3 +58,12 @@ button.addEventListener("click", function check() {
         alert('Неправильно!');
 });
 
+input[0].addEventListener('input', () => {
+    if(input[0].value.toUpperCase() == randWord) {
+        for (let i = 0; i < divMainArea[0].children.length; i++) {
+            divMainArea[0].children[i].classList.add("revealed");
+        }
+    }
+    //console.log(`${input[0].value}`);
+});
+
