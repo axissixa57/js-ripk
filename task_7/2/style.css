@@ -17,7 +17,7 @@ body > header {
 }
 #page {
     flex: 1;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -72,10 +72,8 @@ section#frame_1 {
 section#frame_2 {
     height: 100%;
     width: 100%;
-    display: flex;
+    display: none;
     flex-flow: column nowrap;
-    /* justify-content: flex-start;
-    align-items: center; */
 }
 #frame_2 > small {
     align-self: flex-start;
@@ -89,6 +87,7 @@ input {
     border-bottom: 1.5px solid #a397ff;
     margin-bottom: 10px;
     width: 235px;
+    outline: none;
 }
 
 .left {
@@ -117,7 +116,7 @@ input {
 
 .buttons button {
     width: 125px;
-    height: 30px;
+    height: 35px;
     cursor: pointer;
     background: #7161EF;
     color: white;
@@ -132,4 +131,19 @@ input {
 
 .buttons button:hover {
     background: #a397ff;
+}
+
+button:disabled {
+    background: #c4bdf0;
+}
+
+button:disabled:hover {
+    background: #c4bdf0;
+}
+
+section#frame_3 {
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-flow: column nowrap;
 }
