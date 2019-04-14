@@ -191,6 +191,7 @@ section#frame_3 > p {
 
 .confirmation-code {
     padding: 50px 0px 0px;
+    visibility: hidden;
 }
 .confirmation-code div {
     display: flex;
@@ -221,4 +222,11 @@ section#frame_3 > p {
 }
 #frame_3 .buttons {
     padding-top: 70px;
+}
+
+section#frame_4 {
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-flow: column nowrap;
 }
