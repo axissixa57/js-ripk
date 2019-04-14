@@ -17,7 +17,8 @@ body > header {
 }
 #page {
     flex: 1;
-    display: none;
+    /* display: none; */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -141,14 +142,83 @@ button:disabled:hover {
     background: #c4bdf0;
 }
 
-section#frame_3 {
-    height: 100%;
-    width: 100%;
-    display: none;
-    flex-flow: column nowrap;
-}
-
 #countries {
     margin-bottom: 10px;
     width: 235px;
+}
+
+section#frame_3 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+section#frame_3 > p {
+    margin: 0;
+    padding: 30px 14px;
+}
+
+.phone-data {
+    display: flex;
+    padding: 0px 80px;
+}
+
+.phone-data > input {
+    margin-bottom: 0px;
+    margin-right: 45px;
+    font-size: 1.5rem;
+}
+
+.phone-data > button, .confirmation-code button {
+    width: 100px;
+    height: 39px;
+    cursor: pointer;
+    background: #7161EF;
+    color: white;
+    border: unset;
+    font-size: 1rem;
+    margin: 0 5px;
+    border-radius: 7px;
+}
+.phone-data > button:hover, .confirmation-code button:hover {
+    background: #a397ff;
+}
+
+.phone-data > input::-webkit-input-placeholder { 
+    color: grey;
+}
+
+.confirmation-code {
+    padding: 50px 0px 0px;
+}
+.confirmation-code div {
+    display: flex;
+    align-items: flex-end;
+}
+.confirmation-code p {
+    margin: 0;
+}
+.confirmation-code input {
+    border: 1px solid #a397ff;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 10px 20px 0px 33px;
+
+}
+.confirmation-code input {
+    border: 1px solid #a397ff;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 10px 20px 0px 33px;
+
+}
+#frame_3 .buttons {
+    padding-top: 70px;
 }
