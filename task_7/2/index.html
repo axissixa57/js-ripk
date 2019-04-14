@@ -12,11 +12,11 @@
 
 <body>
     <header></header>
-    <!-- <section id="loader">
+    <section id="loader">
         <div class="value">
             <div class="value-box"></div>
         </div>
-    </section> -->
+    </section>
     <main id="page">
         <div>
             <section id="frame_1">
@@ -26,25 +26,22 @@
             </section>
             <section id="frame_2">
                 <small>Шаг 1. Персональные данные</small>
-                <form>
+                <form id="form_id">
                     <div class="left">
                         <p>Имя:</p>
-                        <input type="text">
+                        <input id="name" type="text">
                         <p>Электронная почта:</p>
-                        <input type="text">
+                        <input type="text" id="email">
                         <p>Страна:</p>
-                        <!-- <input type="text"> -->
-                        <select id="countries">
-  
-                        </select>
+                        <select id="countries"></select>
                         <p>Пароль:</p>
-                        <input id="pass" type="text">
+                        <input id="pass" type="password">
                         <p>Повторите пароль:</p>
-                        <input id="repeat_pass" type="text">
+                        <input id="repeat_pass" type="password">
                     </div>
                     <div class="right">
                         <p>Фамилия:</p>
-                        <input type="text">
+                        <input id="surname" type="text">
                         <p>Адрес:</p>
                         <input type="text">
                     </div>

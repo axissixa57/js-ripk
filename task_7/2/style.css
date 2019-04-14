@@ -17,8 +17,7 @@ body > header {
 }
 #page {
     flex: 1;
-    /* display: none; */
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -34,8 +33,7 @@ body > header {
 section#frame_1 {
     height: 100%;
     width: 100%;
-    /* display: flex; */
-    display: none;
+    display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
@@ -74,8 +72,7 @@ section#frame_1 {
 section#frame_2 {
     height: 100%;
     width: 100%;
-    /* display: none; */
-    display: flex;
+    display: none;
     flex-flow: column nowrap;
 }
 #frame_2 > small {
