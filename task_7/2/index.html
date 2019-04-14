@@ -12,11 +12,11 @@
 
 <body>
     <header></header>
-    <section id="loader">
+    <!-- <section id="loader">
         <div class="value">
             <div class="value-box"></div>
         </div>
-    </section>
+    </section> -->
     <main id="page">
         <div>
             <section id="frame_1">
@@ -33,7 +33,10 @@
                         <p>Электронная почта:</p>
                         <input type="text">
                         <p>Страна:</p>
-                        <input type="text">
+                        <!-- <input type="text"> -->
+                        <select id="countries">
+  
+                        </select>
                         <p>Пароль:</p>
                         <input id="pass" type="text">
                         <p>Повторите пароль:</p>
@@ -47,7 +50,7 @@
                     </div>
                 </form>
                 <div class="buttons">
-                    <button type="button" name="cancel">Отмена</button>
+                    <button type="button" name="cancel" id="cancel">Отмена</button>
                     <button disabled type="button" name="next" id="next">Далее</button>
                 </div>
             </section>
