@@ -12,14 +12,14 @@
 
 <body>
     <header></header>
-    <!-- <section id="loader">
+    <section id="loader">
         <div class="value">
             <div class="value-box"></div>
         </div>
-    </section> -->
+    </section>
     <main id="page">
         <div>
-            <!-- <section id="frame_1">
+            <section id="frame_1">
                 <p>Добро пожаловать в <span>Сервис</span>!</p>
                 <small>Для продолжения нужно зарегистрироваться</small>
                 <button type="button" name="reg">Регистрация</button>
@@ -50,8 +50,8 @@
                     <button type="button" name="cancel" id="cancel">Отмена</button>
                     <button disabled type="button" name="next" id="next">Далее</button>
                 </div>
-            </section> -->
-            <!-- <section id="frame_3">
+            </section>
+            <section id="frame_3">
                 <small>Шаг 2. Телефонный номер</small>
                 <p>В целях безопасности Сервису нужно подтверждение вашего телефонного номера. На ваш номер будет
                     отправлен 4-значный код подтверждения.</p>
@@ -70,13 +70,18 @@
                     <button type="button" name="back" id="back">Назад</button>
                     <button disabled type="button" name="nextPhone" id="nextPhone">Далее</button>
                 </div>
-            </section> -->
+            </section>
             <section id="frame_4">
                 <small>Шаг 3. Метод оплаты</small>
                 <p>Для совершения покупок в Сервисе необходимо подключить банковскую карту.</p>
                 <div class="numberOfCard">
                     <p>Номер карты:</p>
-                    <input id="numberOfCard" type="text" placeholder="1111 2222 3333 4444">
+                    <div id="valueOfCard">
+                        <input type="text" placeholder="1111" maxlength="4">
+                        <input type="text" placeholder="2222" maxlength="4">
+                        <input type="text" placeholder="3333" maxlength="4">
+                        <input type="text" placeholder="4444" maxlength="4">
+                    </div>
                 </div>
                 <div class="validity">
                     <div>
@@ -97,6 +102,7 @@
                     <button disabled type="button" name="nextPhone" id="end">Завершить</button>
                 </div>
             </section>
+            <section id="frame_5"></section>
         </div>
     </main>
     <script src="loader.js"></script>

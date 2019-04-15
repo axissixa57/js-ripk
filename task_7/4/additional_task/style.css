@@ -17,8 +17,7 @@ body > header {
 }
 #page {
     flex: 1;
-    /* display: none; */
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -150,7 +149,6 @@ button:disabled:hover {
 section#frame_3 {
     height: 100%;
     width: 100%;
-    /* display: flex; */
     display: none;
     flex-flow: column nowrap;
 }
@@ -228,7 +226,7 @@ section#frame_3 > p {
 section#frame_4 {
     height: 100%;
     width: 100%;
-    display: flex;
+    display: none;
     flex-flow: column nowrap;
 }
 
@@ -243,9 +241,12 @@ section#frame_4 > p {
 .numberOfCard > p {
     margin: 0px 0px 5px 0px;
 }
-.numberOfCard > input {
+.numberOfCard input {
     text-align: center;
     font-size: 1.1rem;
+    width: 60px;
+    border: 1.5px solid #a397ff;
+    border-radius: 5px;
 }
 .validity {
     display: flex;
@@ -280,4 +281,11 @@ section#frame_4 > p {
 
 #frame_4 .buttons {
     padding-top: 20px;
+}
+
+section#frame_5 {
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-flow: column nowrap;
 }

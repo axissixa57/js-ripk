@@ -143,16 +143,20 @@ const blockConfirmationCode = document.querySelector('.confirmation-code');
 
 const buttonBackCard = document.getElementById('backCard');
 const buttonEnd = document.getElementById('end');
-const inputNumberOfCard = document.getElementById('numberOfCard');
 const inputValidity = document.getElementById('validity');
 const inputCVV = document.getElementById('cvv');
 const checkbox = document.getElementById('checkbox');
+const inputFirstPart = document.querySelector('#valueOfCard input:nth-child(1)');
+const inputSecondPart = document.querySelector('#valueOfCard input:nth-child(2)');
+const inputThirdPart = document.querySelector('#valueOfCard input:nth-child(3)');
+const inputFourthPart = document.querySelector('#valueOfCard input:nth-child(4)');
 
 function validateCardNumber() {
-    let regCardNumber = /^[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}$/;
+    let regCardNumber = /^[0-9]{4}$/;
     let regValidity = /^(01|02|03|04|05|06|07|08|09|10|11|12)\/{1}[1-9]{2}$/;
     let regCVV = /^[0-9]{3}$/;
-    if (regCardNumber.test(inputNumberOfCard.value) == false) {
+    if (regCardNumber.test(inputFirstPart.value) == false || regCardNumber.test(inputSecondPart.value) == false || 
+        regCardNumber.test(inputThirdPart.value) == false || regCardNumber.test(inputThirdPart.value) == false) {
         alert('Введите корректный номер карты');
         regCardNumber.value = "";
         return false;
@@ -189,3 +193,20 @@ buttonEnd.addEventListener('click', () => {
         //blockConfirmationCode.style.visibility = 'hidden';
     }
 });
+
+inputFirstPart.addEventListener('input', () => {
+    if(inputFirstPart.value.length == 4) {
+        inputSecondPart.focus();
+    }
+});
+inputSecondPart.addEventListener('input', () => {
+    if(inputSecondPart.value.length == 4) {
+        inputThirdPart.focus();
+    }
+});
+inputThirdPart.addEventListener('input', () => {
+    if(inputThirdPart.value.length == 4) {
+        inputFourthPart.focus();
+    }
+});
+
