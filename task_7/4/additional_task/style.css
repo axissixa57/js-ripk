@@ -160,13 +160,86 @@ section#frame_3 > p {
 
 .phone-data {
     display: flex;
-    padding: 0px 80px;
+    align-items: center;
 }
 
-.phone-data > input {
-    margin-bottom: 0px;
-    margin-right: 45px;
-    font-size: 1.5rem;
+.flag {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.flag-pic {
+    background: url('./img/flags.png') no-repeat 0 0;
+    background-position: -1px -1412px;
+    background-size: 24px 3876px;
+    width: 24px;
+    height: 16px;
+    margin-right: 15px;
+}
+
+.listOfCountries {
+    display: none;
+    flex-flow: column nowrap;
+    overflow-y: auto;
+    z-index: 2000;
+    position: fixed;
+    top: 10%;
+    left: 36%;
+    width: 400px;
+    height: 905px;
+    min-width: 400px;
+    max-height: 905px;
+    background: #fff;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
+}
+.countryId {
+    display: flex;
+    padding: 10px 20px 5px;
+}
+.countryId:hover {
+    background: #e6e6e6;
+}
+.countryFlag {
+    background: url('./img/flags.png') no-repeat 0 0;
+    background-position: -1px -2278px;
+    background-size: 24px 3876px;
+    width: 24px;
+    height: 16px;
+    margin-right: 15px;
+}    
+.countryNumberId {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 16px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.countryNumberId span {
+    padding-left: 8px;
+    color: rgba(0,0,0,0.54);
+    margin-bottom: -1.2px;
+}
+
+.flag-arrow {
+    border-color: rgba(68,68,68,0.4) transparent;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    height: 0;
+    width: 0;
+    right: 5px;
+    color: black;
+}
+
+#phoneNumberId {
+    margin: 0px;
+    border: 1.5px solid #a397ff;
+    border-radius: 5px;
+    height: 30px;
+    margin-right: 20px;
+    font-size: 1rem;
+    padding-left: 20px;
 }
 
 .phone-data > button, .confirmation-code button {

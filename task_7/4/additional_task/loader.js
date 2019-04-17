@@ -14,6 +14,7 @@ const inputs = document.querySelectorAll('#form_id input');
 const pass = document.getElementById('pass');
 const repeatPass = document.getElementById('repeat_pass');
 const countries = ["Абхазия", "Австралия", "Австрия", "Азербайджан", "Албания", "Алжир", "Ангола", "Ангуилья", "Андорра", "Антигуа и Барбуда", "Антильские острова", "Аргентина", "Армения", "Афганистан", "Багамские острова", "Бангладеш", "Барбадос", "Бахрейн", "Беларусь", "Белиз", "Бельгия", "Бенин", "Бермуды", "Болгария", "Боливия", "Босния/Герцеговина", "Ботсвана", "Бразилия", "Британские Виргинские о-ва", "Бруней", "Буркина Фасо", "Бурунди", "Бутан", "Вануату", "Ватикан", "Великобритания", "Венгрия", "Венесуэла", "Вьетнам", "Габон", "Гаити", "Гайана", "Гамбия", "Гана", "Гваделупа", "Гватемала", "Гвинея", "Гвинея-Бисау", "Германия", "Гернси остров", "Гибралтар", "Гондурас", "Гонконг", "Государство Палестина", "Гренада", "Гренландия", "Греция", "Грузия", "ДР Конго", "Дания", "Джерси остров", "Джибути", "Доминиканская Республика", "Египет", "Замбия", "Западная Сахара", "Зимбабве", "Израиль", "Индия", "Индонезия", "Иордания", "Ирак", "Иран", "Ирландия", "Исландия", "Испания", "Италия", "Йемен", "Кабо-Верде", "Казахстан", "Камбоджа", "Камерун", "Канада", "Катар", "Кения", "Кипр", "Китай", "Колумбия", "Коста-Рика", "Кот-д'Ивуар", "Куба", "Кувейт", "Кука острова", "Кыргызстан", "Лаос", "Латвия", "Лесото", "Либерия", "Ливан", "Ливия", "Литва", "Лихтенштейн", "Люксембург", "Маврикий", "Мавритания", "Мадагаскар", "Македония", "Малайзия", "Мали", "Мальдивские острова", "Мальта", "Марокко", "Мексика", "Мозамбик", "Молдова", "Монако", "Монголия", "Мьянма (Бирма)", "Мэн о-в", "Намибия", "Непал", "Нигер", "Нигерия", "Нидерланды (Голландия)", "Никарагуа", "Новая Зеландия", "Новая Каледония", "Норвегия", "О.А.Э.", "Оман", "Пакистан", "Палау", "Панама", "Папуа Новая Гвинея", "Парагвай", "Перу", "Питкэрн остров", "Польша", "Португалия", "Пуэрто Рико", "Республика Конго", "Реюньон", "Россия", "Руанда", "Румыния", "США", "Сальвадор", "Самоа", "Сан-Марино", "Сан-Томе и Принсипи", "Саудовская Аравия", "Свазиленд", "Святая Люсия", "Северная Корея", "Сейшеллы", "Сен-Пьер и Микелон", "Сенегал", "Сент Китс и Невис", "Сент-Винсент и Гренадины", "Сербия", "Сингапур", "Сирия", "Словакия", "Словения", "Соломоновы острова", "Сомали", "Судан", "Суринам", "Сьерра-Леоне", "Таджикистан", "Таиланд", "Тайвань", "Танзания", "Того", "Токелау острова", "Тонга", "Тринидад и Тобаго", "Тувалу", "Тунис", "Туркменистан", "Туркс и Кейкос", "Турция", "Уганда", "Узбекистан", "Украина", "Уоллис и Футуна острова", "Уругвай", "Фарерские острова", "Фиджи", "Филиппины", "Финляндия", "Франция", "Французская Полинезия", "Хорватия", "Чад", "Черногория", "Чехия", "Чили", "Швейцария", "Швеция", "Шри-Ланка", "Эквадор", "Экваториальная Гвинея", "Эритрея", "Эстония", "Эфиопия", "ЮАР", "Южная Корея", "Южная Осетия", "Ямайка", "Япония",];
+const countriesV2 = [["Австралия", "+61 ", "-1px -1px"], ["Австрия", "+43 ", "-1px -18px"], ["Азербайджан", "+994 ", "-1px -35px"], ["Албания", "+355 "], ["Алжир", "+213 "], ["Ангола", "+244 "], ["Ангуилья", "+1 "], ["Андорра", "+376 "], ["Антигуа и Барбуда", "+1 "], ["Аргентина", "+54 "], ["Армения", "+374 "], ["Афганистан", "+93 "], ["Багамские острова", "+1 "], ["Бангладеш", "+880 "], ["Барбадос", "+1 "], ["Бахрейн", "+973 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "]];
 const select = document.getElementById('countries');
 const email = document.getElementById('email');
 const name = document.getElementById('name');
@@ -21,7 +22,6 @@ const surname = document.getElementById('surname');
 const buttonSend = document.getElementById('send');
 const buttonCheck = document.getElementById('check');
 const buttonNextOfPhonePage = document.getElementById('nextPhone');
-const inputPhone = document.getElementById('phone');
 const inputCode = document.getElementById('code');
 const blockConfirmationCode = document.querySelector('.confirmation-code');
 const buttonBackCard = document.getElementById('backCard');
@@ -33,6 +33,13 @@ const inputFirstPart = document.querySelector('#valueOfCard input:nth-child(1)')
 const inputSecondPart = document.querySelector('#valueOfCard input:nth-child(2)');
 const inputThirdPart = document.querySelector('#valueOfCard input:nth-child(3)');
 const inputFourthPart = document.querySelector('#valueOfCard input:nth-child(4)');
+const divFlag = document.querySelector('.flag');
+const divFlagPic = document.querySelector('.flag-pic');
+const divListOfCountries = document.querySelector('.listOfCountries');
+const inputPhoneNumberId = document.getElementById('phoneNumberId');
+let countryName;
+let countryNumber;
+let backgroundPosition;
 let progress = 0;
 
 // progress bar
@@ -117,11 +124,46 @@ function validate() {
     return true;
 }
 
+for (let i = 0; i < countriesV2.length; i++) {
+    const newDivCountryId = document.createElement('div');
+    const newDivCountryFlag = document.createElement('div');
+    const newDivCountryNumberId = document.createElement('div');
+    const spanInDivCountryNumberId = document.createElement('span');
+    newDivCountryId.classList.add('countryId');
+    newDivCountryFlag.classList.add('countryFlag');
+    newDivCountryNumberId.classList.add('countryNumberId');
+    newDivCountryId.appendChild(newDivCountryFlag);
+    newDivCountryId.appendChild(newDivCountryNumberId);
+
+    countryName = countriesV2[i][0];
+    countryNumber = countriesV2[i][1];
+    backgroundPosition = countriesV2[i][2];
+    spanInDivCountryNumberId.innerHTML = `${countryNumber}`;
+    newDivCountryNumberId.innerHTML = `${countryName}${spanInDivCountryNumberId.outerHTML}`;
+    newDivCountryFlag.style.backgroundPosition = `${backgroundPosition}`;
+
+    newDivCountryId.addEventListener('click', () => {
+        divFlagPic.style.backgroundPosition = countriesV2[i][2];
+        inputPhoneNumberId.value = countriesV2[i][1];
+        inputPhoneNumberId.focus();
+    });
+
+    divListOfCountries.appendChild(newDivCountryId);
+}
+
+divFlag.addEventListener('click', () => {
+    if (divListOfCountries.style.display == "flex") {
+        divListOfCountries.style.display = "none";
+    } else {
+        divListOfCountries.style.display = "flex";
+    }
+});
+
 function validatePhoneNumber() {
-    let regPhoneNumber = /^[+]{1}[0-9]{3}[(]{1}[0-9]{2}[)]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/;
-    if (regPhoneNumber.test(inputPhone.value) == false) {
+    let regPhoneNumber = /^[+]{1}[0-9]{1,3} [0-9]{2}[0-9]{3}[0-9]{2}[0-9]{2}$/;
+    if (regPhoneNumber.test(inputPhoneNumberId.value) == false) {
         alert('Введите корректный номер телефона');
-        inputPhone.value = "";
+        inputPhoneNumberId.value = "";
         return false;
     }
     return true;
@@ -136,7 +178,7 @@ buttonSend.addEventListener('click', () => {
 });
 
 buttonCheck.addEventListener('click', () => {
-    if(inputCode.value.length == 4) {
+    if (inputCode.value.length == 4) {
         console.log('Yes');
         buttonNextOfPhonePage.removeAttribute('disabled');
     } else {
@@ -154,20 +196,20 @@ function validateCardNumber() {
     let regCardNumber = /^[0-9]{4}$/;
     let regValidity = /^(01|02|03|04|05|06|07|08|09|10|11|12)\/{1}[0-9]{2}$/;
     let regCVV = /^[0-9]{3}$/;
-    if (regCardNumber.test(inputFirstPart.value) == false || regCardNumber.test(inputSecondPart.value) == false || 
+    if (regCardNumber.test(inputFirstPart.value) == false || regCardNumber.test(inputSecondPart.value) == false ||
         regCardNumber.test(inputThirdPart.value) == false || regCardNumber.test(inputThirdPart.value) == false) {
         alert('Введите корректный номер карты');
         regCardNumber.value = "";
         return false;
     }
 
-    if(regValidity.test(inputValidity.value) == false) {
+    if (regValidity.test(inputValidity.value) == false) {
         alert('Введите корректный срок действия');
         inputValidity.value = "";
         return false;
     }
 
-    if(regCVV.test(inputCVV.value) == false) {
+    if (regCVV.test(inputCVV.value) == false) {
         alert('Введите корректный CVV');
         inputCVV.value = "";
         return false;
@@ -176,7 +218,7 @@ function validateCardNumber() {
 }
 
 checkbox.addEventListener('click', () => {
-    if(checkbox.checked) {
+    if (checkbox.checked) {
         buttonEnd.removeAttribute('disabled');
     } else {
         buttonEnd.setAttribute('disabled', 'disabled');
@@ -191,17 +233,17 @@ buttonEnd.addEventListener('click', () => {
 });
 
 inputFirstPart.addEventListener('input', () => {
-    if(inputFirstPart.value.length == 4) {
+    if (inputFirstPart.value.length == 4) {
         inputSecondPart.focus();
     }
 });
 inputSecondPart.addEventListener('input', () => {
-    if(inputSecondPart.value.length == 4) {
+    if (inputSecondPart.value.length == 4) {
         inputThirdPart.focus();
     }
 });
 inputThirdPart.addEventListener('input', () => {
-    if(inputThirdPart.value.length == 4) {
+    if (inputThirdPart.value.length == 4) {
         inputFourthPart.focus();
     }
 });

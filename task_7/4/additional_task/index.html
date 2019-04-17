@@ -56,7 +56,16 @@
                 <p>В целях безопасности Сервису нужно подтверждение вашего телефонного номера. На ваш номер будет
                     отправлен 4-значный код подтверждения.</p>
                 <div class="phone-data">
-                    <input id="phone" type="text" placeholder="+___(__)___-__-__">
+                    <div class="flag">
+                        <div class="flag-pic"></div>
+                        <div class="listOfCountries">
+                        </div>
+                        <div class="flag-arrow"></div>
+                    </div>
+                    <div class="phoneNumber">
+                        <input type="text" name="phoneNumberId" id="phoneNumberId" placeholder="Номер телефона"
+                            value="+375 ">
+                    </div>
                     <button type="button" name="send" id="send">Отправить</button>
                 </div>
                 <div class="confirmation-code">
