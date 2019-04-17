@@ -13,7 +13,7 @@ const inputs = document.getElementsByTagName('input');
 const pass = document.getElementById('pass');
 const repeatPass = document.getElementById('repeat_pass');
 // const countries = ["Австралия", "Австрия", "Азербайджан", "Албания", "Алжир", "Ангола", "Ангуилья", "Андорра", "Антигуа и Барбуда", "Антильские острова", "Аргентина", "Армения", "Афганистан", "Багамские острова", "Бангладеш", "Барбадос", "Бахрейн", "Беларусь", "Белиз", "Бельгия", "Бенин", "Бермуды", "Болгария", "Боливия", "Босния/Герцеговина", "Ботсвана", "Бразилия", "Британские Виргинские о-ва", "Бруней", "Буркина Фасо", "Бурунди", "Бутан", "Вануату", "Ватикан", "Великобритания", "Венгрия", "Венесуэла", "Вьетнам", "Габон", "Гаити", "Гайана", "Гамбия", "Гана", "Гваделупа", "Гватемала", "Гвинея", "Гвинея-Бисау", "Германия", "Гернси остров", "Гибралтар", "Гондурас", "Гонконг", "Государство Палестина", "Гренада", "Гренландия", "Греция", "Грузия", "ДР Конго", "Дания", "Джерси остров", "Джибути", "Доминиканская Республика", "Египет", "Замбия", "Западная Сахара", "Зимбабве", "Израиль", "Индия", "Индонезия", "Иордания", "Ирак", "Иран", "Ирландия", "Исландия", "Испания", "Италия", "Йемен", "Кабо-Верде", "Казахстан", "Камбоджа", "Камерун", "Канада", "Катар", "Кения", "Кипр", "Китай", "Колумбия", "Коста-Рика", "Кот-д'Ивуар", "Куба", "Кувейт", "Кука острова", "Кыргызстан", "Лаос", "Латвия", "Лесото", "Либерия", "Ливан", "Ливия", "Литва", "Лихтенштейн", "Люксембург", "Маврикий", "Мавритания", "Мадагаскар", "Македония", "Малайзия", "Мали", "Мальдивские острова", "Мальта", "Марокко", "Мексика", "Мозамбик", "Молдова", "Монако", "Монголия", "Мьянма (Бирма)", "Мэн о-в", "Намибия", "Непал", "Нигер", "Нигерия", "Нидерланды (Голландия)", "Никарагуа", "Новая Зеландия", "Новая Каледония", "Норвегия", "О.А.Э.", "Оман", "Пакистан", "Палау", "Панама", "Папуа Новая Гвинея", "Парагвай", "Перу", "Питкэрн остров", "Польша", "Португалия", "Пуэрто Рико", "Республика Конго", "Реюньон", "Россия", "Руанда", "Румыния", "США", "Сальвадор", "Самоа", "Сан-Марино", "Сан-Томе и Принсипи", "Саудовская Аравия", "Свазиленд", "Святая Люсия", "Северная Корея", "Сейшеллы", "Сен-Пьер и Микелон", "Сенегал", "Сент Китс и Невис", "Сент-Винсент и Гренадины", "Сербия", "Сингапур", "Сирия", "Словакия", "Словения", "Соломоновы острова", "Сомали", "Судан", "Суринам", "Сьерра-Леоне", "Таджикистан", "Таиланд", "Тайвань", "Танзания", "Того", "Токелау острова", "Тонга", "Тринидад и Тобаго", "Тувалу", "Тунис", "Туркменистан", "Туркс и Кейкос", "Турция", "Уганда", "Узбекистан", "Украина", "Уоллис и Футуна острова", "Уругвай", "Фарерские острова", "Фиджи", "Филиппины", "Финляндия", "Франция", "Французская Полинезия", "Хорватия", "Чад", "Черногория", "Чехия", "Чили", "Швейцария", "Швеция", "Шри-Ланка", "Эквадор", "Экваториальная Гвинея", "Эритрея", "Эстония", "Эфиопия", "ЮАР", "Южная Корея", "Южная Осетия", "Ямайка", "Япония",];
-const countries = [["Австралия", "+61"], ["Австрия", "+43"], ["Азербайджан", "+994"], ["Албания", "+355"], ["Алжир", "+213"], ["Ангола", "+244"], ["Ангуилья", "+1"], ["Андорра", "+376"], ["Антигуа и Барбуда", "+1"], ["Аргентина", "+54"], ["Армения", "+374"], ["Афганистан", "+93"], ["Багамские острова", "+1"], ["Бангладеш", "+880"], ["Барбадос", "+1"], ["Бахрейн", "+973"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"], ["Алжир", "+213"]];
+const countries = [["Австралия", "+61 ", "-1px -1px"], ["Австрия", "+43 ", "-1px -18px"], ["Азербайджан", "+994 ", "-1px -35px"], ["Албания", "+355 "], ["Алжир", "+213 "], ["Ангола", "+244 "], ["Ангуилья", "+1 "], ["Андорра", "+376 "], ["Антигуа и Барбуда", "+1 "], ["Аргентина", "+54 "], ["Армения", "+374 "], ["Афганистан", "+93 "], ["Багамские острова", "+1 "], ["Бангладеш", "+880 "], ["Барбадос", "+1 "], ["Бахрейн", "+973 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "], ["Алжир", "+213 "]];
 const select = document.getElementById('countries');
 const email = document.getElementById('email');
 const name = document.getElementById('name');
@@ -105,35 +105,13 @@ let progress = 0;
 const buttonSend = document.getElementById('send');
 const buttonCheck = document.getElementById('check');
 const buttonNextOfPhonePage = document.getElementById('nextPhone');
-// const inputPhone = document.getElementById('phone');
 const inputCode = document.getElementById('code');
 const blockConfirmationCode = document.querySelector('.confirmation-code');
 
-
-// function validatePhoneNumber() {
-//     let regPhoneNumber = /^[+]{1}[0-9]{3}[(]{1}[0-9]{2}[)]{1}[0-9]{3}[-]{1}[0-9]{2}[-]{1}[0-9]{2}$/;
-//     if (regPhoneNumber.test(inputPhone.value) == false) {
-//         alert('Введите корректный номер телефона');
-//         inputPhone.value = "";
-//         return false;
-//     }
-//     return true;
-// }
-
-// buttonSend.addEventListener('click', () => {
-//     if (validatePhoneNumber()) {
-//         blockConfirmationCode.style.visibility = 'visible';
-//     } else {
-//         blockConfirmationCode.style.visibility = 'hidden';
-//     }
-// });
-
 buttonCheck.addEventListener('click', () => {
-    if(inputCode.value.length == 4) {
-        console.log('Yes');
+    if (inputCode.value.length == 4) {
         buttonNextOfPhonePage.removeAttribute('disabled');
     } else {
-        console.log('No');
         buttonNext.setAttribute('disabled', 'disabled');
     }
 });
@@ -143,12 +121,15 @@ buttonNextOfPhonePage.addEventListener('click', () => {
     sectionFrame4.style.display = "flex";
 });
 
-const divListOfCounties = document.querySelector('.listOfCounties');
+const divFlag = document.querySelector('.flag');
+const divFlagPic = document.querySelector('.flag-pic');
+const divListOfCountries = document.querySelector('.listOfCountries');
+const inputPhoneNumberId = document.getElementById('phoneNumberId');
 let countryName;
 let countryNumber;
 let backgroundPosition = 1;
 
-for(let i = 0; i < countries.length; i++) {
+for (let i = 0; i < countries.length; i++) {
     const newDivCountryId = document.createElement('div');
     const newDivCountryFlag = document.createElement('div');
     const newDivCountryNumberId = document.createElement('div');
@@ -158,14 +139,45 @@ for(let i = 0; i < countries.length; i++) {
     newDivCountryNumberId.classList.add('countryNumberId');
     newDivCountryId.appendChild(newDivCountryFlag);
     newDivCountryId.appendChild(newDivCountryNumberId);
-    //newDivCountryNumberId.appendChild(spanInDivCountryNumberId);
 
     newDivCountryFlag.style.backgroundPosition = `-1px -${backgroundPosition}px`;
-    backgroundPosition+=17;
+    backgroundPosition += 17;
     countryName = countries[i][0];
     countryNumber = countries[i][1];
     spanInDivCountryNumberId.innerHTML = `${countryNumber}`;
     newDivCountryNumberId.innerHTML = `${countryName}${spanInDivCountryNumberId.outerHTML}`;
 
-    divListOfCounties.appendChild(newDivCountryId);
+    newDivCountryId.addEventListener('click', () => {
+        // divFlagPic.style.backgroundPosition = `-1px -${backgroundPosition}px`;
+        inputPhoneNumberId.value = countries[i][1];
+        inputPhoneNumberId.focus();
+    });
+
+    divListOfCountries.appendChild(newDivCountryId);
 }
+
+divFlag.addEventListener('click', () => {
+    if(divListOfCountries.style.display == "flex") {
+        divListOfCountries.style.display = "none";
+    } else {
+        divListOfCountries.style.display = "flex";
+    }
+});
+
+function validatePhoneNumber() {
+    let regPhoneNumber = /^[+]{1}[0-9]{1,3} [0-9]{2}[0-9]{3}[0-9]{2}[0-9]{2}$/;
+    if (regPhoneNumber.test(inputPhoneNumberId.value) == false) {
+        alert('Введите корректный номер телефона');
+        inputPhoneNumberId.value = "";
+        return false;
+    }
+    return true;
+}
+
+buttonSend.addEventListener('click', () => {
+    if (validatePhoneNumber()) {
+        blockConfirmationCode.style.visibility = 'visible';
+    } else {
+        blockConfirmationCode.style.visibility = 'hidden';
+    }
+});

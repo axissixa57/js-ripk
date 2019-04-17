@@ -162,37 +162,38 @@ section#frame_3 > p {
 .phone-data {
     display: flex;
     align-items: center;
-    /* padding: 0px 80px; */
 }
 
 .flag {
     padding: 10px 20px;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
+    cursor: pointer;
 }
 .flag-pic {
+    /* background: url('./img/flags.png') no-repeat 0 0;
+    background-position: -1px -1412px;
+    background-size: 24px 3876px; */
     border: 1px solid black;
     width: 24px;
     height: 16px;
     margin-right: 15px;
-    overflow: hidden;
 }
 
-.listOfCounties {
+.listOfCountries {
+    display: none;
+    flex-flow: column nowrap;
+    overflow-y: auto;
+    z-index: 2000;
     position: fixed;
     top: 10%;
-    left: 35%;
+    left: 36%;
     width: 400px;
     height: 905px;
     min-width: 400px;
     max-height: 905px;
     background: #fff;
     box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.2);
-    display: flex;
-    flex-flow: column nowrap;
-    overflow-y: auto;
-    z-index: 2000;
 }
 .countryId {
     display: flex;
@@ -215,8 +216,6 @@ section#frame_3 > p {
     font-weight: bold;
 }
 .countryNumberId span {
-    /* display: flex;
-    align-items: center; */
     padding-left: 8px;
     color: rgba(0,0,0,0.54);
     margin-bottom: -1.2px;
@@ -229,7 +228,6 @@ section#frame_3 > p {
     height: 0;
     width: 0;
     right: 5px;
-    /* position: absolute; */
     color: black;
 }
 
@@ -240,9 +238,6 @@ section#frame_3 > p {
     height: 30px;
     margin-right: 20px;
     font-size: 1rem;
-}
-
-#phoneNumberId::-webkit-input-placeholder { 
     padding-left: 20px;
 }
 
