@@ -127,7 +127,7 @@ const divListOfCountries = document.querySelector('.listOfCountries');
 const inputPhoneNumberId = document.getElementById('phoneNumberId');
 let countryName;
 let countryNumber;
-let backgroundPosition = 1;
+let backgroundPosition;
 
 for (let i = 0; i < countries.length; i++) {
     const newDivCountryId = document.createElement('div');
@@ -140,15 +140,15 @@ for (let i = 0; i < countries.length; i++) {
     newDivCountryId.appendChild(newDivCountryFlag);
     newDivCountryId.appendChild(newDivCountryNumberId);
 
-    newDivCountryFlag.style.backgroundPosition = `-1px -${backgroundPosition}px`;
-    backgroundPosition += 17;
     countryName = countries[i][0];
     countryNumber = countries[i][1];
+    backgroundPosition = countries[i][2];
     spanInDivCountryNumberId.innerHTML = `${countryNumber}`;
     newDivCountryNumberId.innerHTML = `${countryName}${spanInDivCountryNumberId.outerHTML}`;
+    newDivCountryFlag.style.backgroundPosition = `${backgroundPosition}`;
 
     newDivCountryId.addEventListener('click', () => {
-        // divFlagPic.style.backgroundPosition = `-1px -${backgroundPosition}px`;
+        divFlagPic.style.backgroundPosition = countries[i][2];
         inputPhoneNumberId.value = countries[i][1];
         inputPhoneNumberId.focus();
     });

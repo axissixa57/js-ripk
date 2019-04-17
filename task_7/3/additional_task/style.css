@@ -171,10 +171,9 @@ section#frame_3 > p {
     cursor: pointer;
 }
 .flag-pic {
-    /* background: url('./img/flags.png') no-repeat 0 0;
+    background: url('./img/flags.png') no-repeat 0 0;
     background-position: -1px -1412px;
-    background-size: 24px 3876px; */
-    border: 1px solid black;
+    background-size: 24px 3876px;
     width: 24px;
     height: 16px;
     margin-right: 15px;
@@ -198,6 +197,9 @@ section#frame_3 > p {
 .countryId {
     display: flex;
     padding: 10px 20px 5px;
+}
+.countryId:hover {
+    background: #e6e6e6;
 }
 .countryFlag {
     background: url('./img/flags.png') no-repeat 0 0;
