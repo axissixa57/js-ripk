@@ -8,6 +8,7 @@ const sectionFrame4 = document.getElementById('frame_4');
 const sectionFrame5 = document.getElementById('frame_5');
 const buttonRegistry = document.querySelector('#frame_1 > button');
 const buttonNext = document.getElementById('next');
+const buttonBack = document.getElementById('back');
 const buttonCancel = document.getElementById('cancel');
 const form = document.querySelector('form');
 const inputs = document.querySelectorAll('#form_id input');
@@ -42,6 +43,11 @@ let countryNumber;
 let backgroundPosition;
 let progress = 0;
 
+const valueProgressBar = document.querySelectorAll(".value-progressBar");
+const circle1 = document.querySelectorAll(".circle-1");
+const circle2 = document.querySelectorAll(".circle-2");
+const circle3 = document.querySelectorAll(".circle-3");
+
 // progress bar
 let timerId = setInterval(function () {
     if (progress > 100) {
@@ -63,9 +69,16 @@ buttonCancel.addEventListener('click', () => {
 });
 buttonNext.addEventListener('click', () => {
     if (validate()) {
+        valueProgressBar[1].style.width = "50%";
+        circle1[1].style.background = "#7161EF";
+        circle1[1].style.color = "#fff";
         sectionFrame2.style.display = "none";
         sectionFrame3.style.display = "flex";
     }
+});
+buttonBack.addEventListener('click', () => {
+    sectionFrame3.style.display = "none";
+    sectionFrame2.style.display = "flex";
 });
 
 function inputsHasValues() {
@@ -163,7 +176,7 @@ function validatePhoneNumber() {
     let regPhoneNumber = /^[+]{1}[0-9]{1,3} [0-9]{2}[0-9]{3}[0-9]{2}[0-9]{2}$/;
     if (regPhoneNumber.test(inputPhoneNumberId.value) == false) {
         alert('Введите корректный номер телефона');
-        inputPhoneNumberId.value = "";
+        inputPhoneNumberId.value = ``;
         return false;
     }
     return true;
@@ -188,8 +201,22 @@ buttonCheck.addEventListener('click', () => {
 });
 
 buttonNextOfPhonePage.addEventListener('click', () => {
+    valueProgressBar[2].style.width = "100%";
+    circle1[2].style.background = "#7161EF";
+    circle1[2].style.color = "#fff";
+    circle2[2].style.background = "#7161EF";
+    circle2[2].style.color = "#fff";
     sectionFrame3.style.display = "none";
     sectionFrame4.style.display = "flex";
+});
+
+buttonBackCard.addEventListener('click', () => {
+    circle1[2].style.background = "#fff";
+    circle1[2].style.color = "#000";
+    circle2[2].style.background = "#fff";
+    circle2[2].style.color = "#000";
+    sectionFrame3.style.display = "flex";
+    sectionFrame4.style.display = "none";
 });
 
 function validateCardNumber() {
