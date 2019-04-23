@@ -165,6 +165,7 @@ section#frame_3 > p {
 }
 
 .flag {
+    position: relative;
     padding: 10px 20px;
     display: flex;
     align-items: center;
@@ -184,9 +185,9 @@ section#frame_3 > p {
     flex-flow: column nowrap;
     overflow-y: auto;
     z-index: 2000;
-    position: fixed;
-    top: 10%;
-    left: 36%;
+    position: absolute;
+    top: -280px;
+    left: -15%;
     width: 400px;
     height: 905px;
     min-width: 400px;
