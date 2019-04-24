@@ -30,7 +30,9 @@
   toggleHandler(toggle);
 
   function validateSizeOfArea() {
-    let regColAndRow = /^(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30)$/;
+    let regColAndRow = /^(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32)$/;
+    let regBombs = /[0-9]{1,3}/;
+    let numberOfCells = col.value * row.value; 
     if (regColAndRow.test(col.value) == false) {
       alert('Введите число столбцов от 1 до 30');
       return false;
@@ -38,6 +40,16 @@
 
     if (regColAndRow.test(row.value) == false) {
       alert('Введите число строк от 1 до 30');
+      return false;
+    }
+
+    if (regBombs.test(bomb.value) == false) {
+      alert('Введите число строк от 0 до 999');
+      return false;
+    }
+
+    if(numberOfCells <= bomb.value) {
+      alert('Бомб больше чем ячеек!');
       return false;
     }
 
@@ -56,6 +68,8 @@
 
   button.addEventListener('click', () => {
     if (validateSizeOfArea()) {
+      let numberOfBomb = parseInt(bomb.value);
+
       // если есть элементы в table
       if (table.children.length > 0) {
         for (let i = 0; i < table.children.length;) {
@@ -69,10 +83,23 @@
 
         for (let j = 0; j < parseInt(row.value); j++) {
           const td = document.createElement('td');
+
           tr.appendChild(td);
         }
 
         table.appendChild(tr);
+      }
+
+      // размещение бомб
+      while (numberOfBomb > 0) {
+        let colPos = Math.floor((Math.random() * parseInt(col.value)));
+        let rowPos = Math.floor((Math.random() * parseInt(row.value)));
+        if (table.children[colPos].children[rowPos].style.backgroundColor !== "red") {
+          table.children[colPos].children[rowPos].style.backgroundColor = "red";
+          table.children[colPos].children[rowPos].innerHTML = "💣";
+          numberOfBomb--;
+        }
+
       }
 
       toggle.classList.remove("is-active");
