@@ -101,51 +101,98 @@
 
           //console.log(`colPos = ${colPos}, rowPos = ${rowPos}`);
           
-          if(colPos - 1 >= 0 == true && rowPos - 1 >= 0) {
-            if(table.children[colPos - 1].children[rowPos - 1].innerHTML !== "💣")
-              table.children[colPos - 1].children[rowPos - 1].innerHTML = "1";
-          }
+          // if(colPos - 1 >= 0 == true && rowPos - 1 >= 0) {
+          //   if(table.children[colPos - 1].children[rowPos - 1].innerHTML !== "💣")
+          //     table.children[colPos - 1].children[rowPos - 1].innerHTML = "1";
+          // }
 
-          if(colPos - 1 >= 0 == true) {
-            if(table.children[colPos - 1].children[rowPos].innerHTML !== "💣")
-              table.children[colPos - 1].children[rowPos].innerHTML = "1";
-          }
+          // if(colPos - 1 >= 0 == true) {
+          //   if(table.children[colPos - 1].children[rowPos].innerHTML !== "💣")
+          //     table.children[colPos - 1].children[rowPos].innerHTML = "1";
+          // }
           
-          if(colPos - 1 >= 0 == true && rowPos + 1 < parseInt(row.value) == true) { 
-            if(table.children[colPos - 1].children[rowPos + 1].innerHTML !== "💣")
-              table.children[colPos - 1].children[rowPos + 1].innerHTML = "1";
-          }
+          // if(colPos - 1 >= 0 == true && rowPos + 1 < parseInt(row.value) == true) { 
+          //   if(table.children[colPos - 1].children[rowPos + 1].innerHTML !== "💣")
+          //     table.children[colPos - 1].children[rowPos + 1].innerHTML = "1";
+          // }
 
-          if(rowPos - 1 >= 0 == true) {
-            if(table.children[colPos].children[rowPos - 1].innerHTML !== "💣")
-              table.children[colPos].children[rowPos - 1].innerHTML = "1";
-          }
+          // if(rowPos - 1 >= 0 == true) {
+          //   if(table.children[colPos].children[rowPos - 1].innerHTML !== "💣")
+          //     table.children[colPos].children[rowPos - 1].innerHTML = "1";
+          // }
 
-          if(rowPos + 1 < parseInt(row.value) == true) {
-            if(table.children[colPos].children[rowPos + 1].innerHTML !== "💣")
-              table.children[colPos].children[rowPos + 1].innerHTML = "1"
-          }
+          // if(rowPos + 1 < parseInt(row.value) == true) {
+          //   if(table.children[colPos].children[rowPos + 1].innerHTML !== "💣")
+          //     table.children[colPos].children[rowPos + 1].innerHTML = "1"
+          // }
 
-          if(colPos + 1 < parseInt(col.value) == true && rowPos - 1 >= 0 == true) { 
-            if(table.children[colPos + 1].children[rowPos - 1].innerHTML !== "💣")
-              table.children[colPos + 1].children[rowPos - 1].innerHTML = "1";
-          }
+          // if(colPos + 1 < parseInt(col.value) == true && rowPos - 1 >= 0 == true) { 
+          //   if(table.children[colPos + 1].children[rowPos - 1].innerHTML !== "💣")
+          //     table.children[colPos + 1].children[rowPos - 1].innerHTML = "1";
+          // }
 
-          if(colPos + 1 < parseInt(col.value) == true) {
-            if(table.children[colPos + 1].children[rowPos].innerHTML !== "💣")
-              table.children[colPos + 1].children[rowPos].innerHTML = "1";
-          }
+          // if(colPos + 1 < parseInt(col.value) == true) {
+          //   if(table.children[colPos + 1].children[rowPos].innerHTML !== "💣")
+          //     table.children[colPos + 1].children[rowPos].innerHTML = "1";
+          // }
 
-          if(colPos + 1 < parseInt(col.value) == true && rowPos + 1 < parseInt(row.value) == true) {
-            if(table.children[colPos + 1].children[rowPos + 1].innerHTML !== "💣")
-              table.children[colPos + 1].children[rowPos + 1].innerHTML = "1";
-          }
+          // if(colPos + 1 < parseInt(col.value) == true && rowPos + 1 < parseInt(row.value) == true) {
+          //   if(table.children[colPos + 1].children[rowPos + 1].innerHTML !== "💣")
+          //     table.children[colPos + 1].children[rowPos + 1].innerHTML = "1";
+          // }
 
         }
 
       }
 
-      
+      for(let i = 0; i < parseInt(col.value); i++) {
+        for (let j = 0; j < parseInt(row.value); j++) {
+          let count = 0;      
+
+          if(i - 1 >= 0 && j - 1 >= 0) {
+            if(table.children[i - 1].children[j - 1].innerHTML == "💣")
+            count++;
+          }
+          if(i - 1 >= 0) {
+            if(table.children[i - 1].children[j].innerHTML == "💣")
+            count++;
+          }
+          if(i - 1 >= 0 && j + 1 < parseInt(row.value)) {
+            if(table.children[i - 1].children[j + 1].innerHTML == "💣")
+            count++;
+          }
+          if(i >= 0 && j - 1 >= 0) {
+            if(table.children[i].children[j - 1].innerHTML == "💣")
+            count++;
+          }
+
+          // центр
+
+          if(i >= 0 && j + 1 < parseInt(row.value)) {
+            if(table.children[i].children[j + 1].innerHTML == "💣")
+            count++;
+          }
+          if(i + 1 < parseInt(col.value) && j - 1 >= 0) {
+            if(table.children[i + 1].children[j - 1].innerHTML == "💣")
+            count++;
+          }
+          if(i + 1 < parseInt(col.value)) {
+            if(table.children[i + 1].children[j].innerHTML == "💣")
+            count++;
+          }
+          if(i + 1 < parseInt(col.value) && j + 1 < parseInt(row.value)) {
+            if(table.children[i + 1].children[j + 1].innerHTML == "💣")
+            count++;
+          }
+
+          if(count !== undefined) {
+            if(table.children[i].children[j].innerHTML !== "💣") {
+              table.children[i].children[j].innerHTML = `${count}`;
+            }
+          }
+            
+        }
+      }
 
       toggle.classList.remove("is-active");
       menu.style.top = "-400px";
