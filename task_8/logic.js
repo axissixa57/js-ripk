@@ -98,9 +98,54 @@
           table.children[colPos].children[rowPos].style.backgroundColor = "red";
           table.children[colPos].children[rowPos].innerHTML = "💣";
           numberOfBomb--;
+
+          //console.log(`colPos = ${colPos}, rowPos = ${rowPos}`);
+          
+          if(colPos - 1 >= 0 == true && rowPos - 1 >= 0) {
+            if(table.children[colPos - 1].children[rowPos - 1].innerHTML !== "💣")
+              table.children[colPos - 1].children[rowPos - 1].innerHTML = "1";
+          }
+
+          if(colPos - 1 >= 0 == true) {
+            if(table.children[colPos - 1].children[rowPos].innerHTML !== "💣")
+              table.children[colPos - 1].children[rowPos].innerHTML = "1";
+          }
+          
+          if(colPos - 1 >= 0 == true && rowPos + 1 < parseInt(row.value) == true) { 
+            if(table.children[colPos - 1].children[rowPos + 1].innerHTML !== "💣")
+              table.children[colPos - 1].children[rowPos + 1].innerHTML = "1";
+          }
+
+          if(rowPos - 1 >= 0 == true) {
+            if(table.children[colPos].children[rowPos - 1].innerHTML !== "💣")
+              table.children[colPos].children[rowPos - 1].innerHTML = "1";
+          }
+
+          if(rowPos + 1 < parseInt(row.value) == true) {
+            if(table.children[colPos].children[rowPos + 1].innerHTML !== "💣")
+              table.children[colPos].children[rowPos + 1].innerHTML = "1"
+          }
+
+          if(colPos + 1 < parseInt(col.value) == true && rowPos - 1 >= 0 == true) { 
+            if(table.children[colPos + 1].children[rowPos - 1].innerHTML !== "💣")
+              table.children[colPos + 1].children[rowPos - 1].innerHTML = "1";
+          }
+
+          if(colPos + 1 < parseInt(col.value) == true) {
+            if(table.children[colPos + 1].children[rowPos].innerHTML !== "💣")
+              table.children[colPos + 1].children[rowPos].innerHTML = "1";
+          }
+
+          if(colPos + 1 < parseInt(col.value) == true && rowPos + 1 < parseInt(row.value) == true) {
+            if(table.children[colPos + 1].children[rowPos + 1].innerHTML !== "💣")
+              table.children[colPos + 1].children[rowPos + 1].innerHTML = "1";
+          }
+
         }
 
       }
+
+      
 
       toggle.classList.remove("is-active");
       menu.style.top = "-400px";
