@@ -44,7 +44,7 @@
     }
 
     if (regBombs.test(bomb.value) == false) {
-      alert('Введите число строк от 0 до 999');
+      alert('Введите число бомб от 0 до 999');
       return false;
     }
 
@@ -77,12 +77,41 @@
         }
       }
 
-      // добавление размера поля
+      // добавление размера поля и обработчик события на ячейки
       for (let i = 0; i < parseInt(col.value); i++) {
         const tr = document.createElement('tr');
 
         for (let j = 0; j < parseInt(row.value); j++) {
           const td = document.createElement('td');
+          td.id = "green";
+
+          td.addEventListener('click', function one(){
+            if(td.innerHTML == "💣") {
+              // раскрытие всех бомб
+              for(let i = 0; i < parseInt(col.value); i++) {
+                for (let j = 0; j < parseInt(row.value); j++) {
+                  if(table.children[i].children[j].innerHTML == "💣") {
+                    table.children[i].children[j].removeAttribute('id');
+                  }
+                }
+              }
+            } else if(parseInt(`${td.innerHTML}`) > 0) {
+              td.removeAttribute('id');
+              td.classList.add('brown');
+
+            } else {
+              td.removeAttribute('id');
+              td.classList.add('brown');
+            }
+          });
+
+          // флажок
+          td.addEventListener('contextmenu', function two(e) {
+            e.preventDefault();
+            td.removeAttribute('id');
+            td.style.background = "#bdbdbd";
+            td.innerHTML = "🚩";
+          })
 
           tr.appendChild(td);
         }
@@ -94,57 +123,16 @@
       while (numberOfBomb > 0) {
         let colPos = Math.floor((Math.random() * parseInt(col.value)));
         let rowPos = Math.floor((Math.random() * parseInt(row.value)));
-        if (table.children[colPos].children[rowPos].style.backgroundColor !== "red") {
-          table.children[colPos].children[rowPos].style.backgroundColor = "red";
+
+        if (!table.children[colPos].children[rowPos].classList.contains('red')) {
+          table.children[colPos].children[rowPos].classList.add('red');
           table.children[colPos].children[rowPos].innerHTML = "💣";
           numberOfBomb--;
-
-          //console.log(`colPos = ${colPos}, rowPos = ${rowPos}`);
-          
-          // if(colPos - 1 >= 0 == true && rowPos - 1 >= 0) {
-          //   if(table.children[colPos - 1].children[rowPos - 1].innerHTML !== "💣")
-          //     table.children[colPos - 1].children[rowPos - 1].innerHTML = "1";
-          // }
-
-          // if(colPos - 1 >= 0 == true) {
-          //   if(table.children[colPos - 1].children[rowPos].innerHTML !== "💣")
-          //     table.children[colPos - 1].children[rowPos].innerHTML = "1";
-          // }
-          
-          // if(colPos - 1 >= 0 == true && rowPos + 1 < parseInt(row.value) == true) { 
-          //   if(table.children[colPos - 1].children[rowPos + 1].innerHTML !== "💣")
-          //     table.children[colPos - 1].children[rowPos + 1].innerHTML = "1";
-          // }
-
-          // if(rowPos - 1 >= 0 == true) {
-          //   if(table.children[colPos].children[rowPos - 1].innerHTML !== "💣")
-          //     table.children[colPos].children[rowPos - 1].innerHTML = "1";
-          // }
-
-          // if(rowPos + 1 < parseInt(row.value) == true) {
-          //   if(table.children[colPos].children[rowPos + 1].innerHTML !== "💣")
-          //     table.children[colPos].children[rowPos + 1].innerHTML = "1"
-          // }
-
-          // if(colPos + 1 < parseInt(col.value) == true && rowPos - 1 >= 0 == true) { 
-          //   if(table.children[colPos + 1].children[rowPos - 1].innerHTML !== "💣")
-          //     table.children[colPos + 1].children[rowPos - 1].innerHTML = "1";
-          // }
-
-          // if(colPos + 1 < parseInt(col.value) == true) {
-          //   if(table.children[colPos + 1].children[rowPos].innerHTML !== "💣")
-          //     table.children[colPos + 1].children[rowPos].innerHTML = "1";
-          // }
-
-          // if(colPos + 1 < parseInt(col.value) == true && rowPos + 1 < parseInt(row.value) == true) {
-          //   if(table.children[colPos + 1].children[rowPos + 1].innerHTML !== "💣")
-          //     table.children[colPos + 1].children[rowPos + 1].innerHTML = "1";
-          // }
-
         }
 
       }
 
+      // размещение цифр
       for(let i = 0; i < parseInt(col.value); i++) {
         for (let j = 0; j < parseInt(row.value); j++) {
           let count = 0;      
@@ -185,7 +173,7 @@
             count++;
           }
 
-          if(count !== undefined) {
+          if(count !== 0) {
             if(table.children[i].children[j].innerHTML !== "💣") {
               table.children[i].children[j].innerHTML = `${count}`;
             }

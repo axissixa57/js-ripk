@@ -184,10 +184,28 @@ section.game table td {
     width: 30px;
     height: 30px;
     border: 1px solid #000;
-    background-color: #96ee88;
     text-align: center;
 }
 
-section.game table td:hover {
+#green {
+    background-color: #96ee88;
+    color: transparent;
+}
+
+#green:hover {
     background-color: #3dac2c;
 }
+
+.red {
+    background:#ff0000;
+}
+
+.brown {
+    background:#ecbf8e;
+    font-weight: bold;
+}
+
+/* section.game table td:hover {
+    background-color: #3dac2c;
+} */
+
