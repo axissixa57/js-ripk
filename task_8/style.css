@@ -205,6 +205,10 @@ section.game table td {
     font-weight: bold;
 }
 
+.grey {
+    background: #bdbdbd;
+}
+
 /* .blue {
     background:#0313ec;
 } */
