@@ -100,8 +100,34 @@
               td.classList.add('brown');
 
             } else {
+              let index = td.cellIndex;
+              //console.log( );
+              td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
+              td.parentElement.previousSibling.children[index - 1].classList.add('brown');
+              td.parentElement.previousSibling.children[index].removeAttribute('id');
+              td.parentElement.previousSibling.children[index].classList.add('brown');
+              td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
+              td.parentElement.previousSibling.children[index  + 1].classList.add('brown');
+
+              td.previousSibling.removeAttribute('id');
+              td.previousSibling.classList.add('brown');
               td.removeAttribute('id');
               td.classList.add('brown');
+              td.nextElementSibling.removeAttribute('id');
+              td.nextElementSibling.classList.add('brown');
+
+              td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
+              td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
+              td.parentElement.nextElementSibling.children[index].removeAttribute('id');
+              td.parentElement.nextElementSibling.children[index].classList.add('brown');
+              td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
+              td.parentElement.nextElementSibling.children[index  + 1].classList.add('brown');
+
+              // for(let i = 0; i < parseInt(col.value); i++) {
+              //   for (let j = 0; j < parseInt(row.value); j++) {
+              //   }
+              // }
+              
             }
           });
 
