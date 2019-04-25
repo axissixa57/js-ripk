@@ -32,7 +32,7 @@
   function validateSizeOfArea() {
     let regColAndRow = /^(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32)$/;
     let regBombs = /[0-9]{1,3}/;
-    let numberOfCells = col.value * row.value; 
+    let numberOfCells = col.value * row.value;
     if (regColAndRow.test(col.value) == false) {
       alert('Введите число столбцов от 1 до 30');
       return false;
@@ -48,7 +48,7 @@
       return false;
     }
 
-    if(numberOfCells <= bomb.value) {
+    if (numberOfCells <= bomb.value) {
       alert('Бомб больше чем ячеек!');
       return false;
     }
@@ -85,49 +85,75 @@
           const td = document.createElement('td');
           td.id = "green";
 
-          td.addEventListener('click', function one(){
-            if(td.innerHTML == "💣") {
+          td.addEventListener('click', function one() {
+            if (td.innerHTML == "💣") {
               // раскрытие всех бомб
-              for(let i = 0; i < parseInt(col.value); i++) {
+              for (let i = 0; i < parseInt(col.value); i++) {
                 for (let j = 0; j < parseInt(row.value); j++) {
-                  if(table.children[i].children[j].innerHTML == "💣") {
+                  if (table.children[i].children[j].innerHTML == "💣") {
                     table.children[i].children[j].removeAttribute('id');
                   }
                 }
               }
-            } else if(parseInt(`${td.innerHTML}`) > 0) {
+            } else if (parseInt(`${td.innerHTML}`) > 0) {
               td.removeAttribute('id');
               td.classList.add('brown');
 
             } else {
               let index = td.cellIndex;
-              //console.log( );
-              td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
-              td.parentElement.previousSibling.children[index - 1].classList.add('brown');
-              td.parentElement.previousSibling.children[index].removeAttribute('id');
-              td.parentElement.previousSibling.children[index].classList.add('brown');
-              td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
-              td.parentElement.previousSibling.children[index  + 1].classList.add('brown');
 
-              td.previousSibling.removeAttribute('id');
-              td.previousSibling.classList.add('brown');
+              // console.log(td.parentElement.previousSibling);
+              // console.log(td.parentElement.nextElementSibling);
+              // console.log(td.previousSibling);
+
+              if(td.parentElement.previousSibling != null && index - 1 >= 0) { // index < parseInt(row.value)
+                td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
+                td.parentElement.previousSibling.children[index - 1].classList.add('brown');
+              }
+
+              if(td.parentElement.previousSibling != null) {
+                td.parentElement.previousSibling.children[index].removeAttribute('id');
+                td.parentElement.previousSibling.children[index].classList.add('brown');
+              }
+
+              if(td.parentElement.previousSibling != null && index + 1 < parseInt(row.value)) {
+                td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
+                td.parentElement.previousSibling.children[index + 1].classList.add('brown');
+              }
+              
+              if(td.previousSibling != null) {
+                td.previousSibling.removeAttribute('id');
+                td.previousSibling.classList.add('brown');
+              }
+
               td.removeAttribute('id');
               td.classList.add('brown');
-              td.nextElementSibling.removeAttribute('id');
-              td.nextElementSibling.classList.add('brown');
 
-              td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
-              td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
-              td.parentElement.nextElementSibling.children[index].removeAttribute('id');
-              td.parentElement.nextElementSibling.children[index].classList.add('brown');
-              td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
-              td.parentElement.nextElementSibling.children[index  + 1].classList.add('brown');
+              if(td.nextElementSibling != null) {
+                td.nextElementSibling.removeAttribute('id');
+                td.nextElementSibling.classList.add('brown');
+              }
+
+              if(td.parentElement.nextElementSibling != null && index - 1 >= 0) {
+                td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
+                td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
+              }
+
+              if(td.parentElement.nextElementSibling != null) {
+                td.parentElement.nextElementSibling.children[index].removeAttribute('id');
+                td.parentElement.nextElementSibling.children[index].classList.add('brown');
+              }
+
+              if(td.parentElement.nextElementSibling != null && index + 1 < parseInt(row.value)) {
+                td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
+                td.parentElement.nextElementSibling.children[index + 1].classList.add('brown');
+              }
 
               // for(let i = 0; i < parseInt(col.value); i++) {
               //   for (let j = 0; j < parseInt(row.value); j++) {
               //   }
               // }
-              
+
             }
           });
 
@@ -159,52 +185,52 @@
       }
 
       // размещение цифр
-      for(let i = 0; i < parseInt(col.value); i++) {
+      for (let i = 0; i < parseInt(col.value); i++) {
         for (let j = 0; j < parseInt(row.value); j++) {
-          let count = 0;      
+          let count = 0;
 
-          if(i - 1 >= 0 && j - 1 >= 0) {
-            if(table.children[i - 1].children[j - 1].innerHTML == "💣")
-            count++;
+          if (i - 1 >= 0 && j - 1 >= 0) {
+            if (table.children[i - 1].children[j - 1].innerHTML == "💣")
+              count++;
           }
-          if(i - 1 >= 0) {
-            if(table.children[i - 1].children[j].innerHTML == "💣")
-            count++;
+          if (i - 1 >= 0) {
+            if (table.children[i - 1].children[j].innerHTML == "💣")
+              count++;
           }
-          if(i - 1 >= 0 && j + 1 < parseInt(row.value)) {
-            if(table.children[i - 1].children[j + 1].innerHTML == "💣")
-            count++;
+          if (i - 1 >= 0 && j + 1 < parseInt(row.value)) {
+            if (table.children[i - 1].children[j + 1].innerHTML == "💣")
+              count++;
           }
-          if(i >= 0 && j - 1 >= 0) {
-            if(table.children[i].children[j - 1].innerHTML == "💣")
-            count++;
+          if (i >= 0 && j - 1 >= 0) {
+            if (table.children[i].children[j - 1].innerHTML == "💣")
+              count++;
           }
 
           // центр
 
-          if(i >= 0 && j + 1 < parseInt(row.value)) {
-            if(table.children[i].children[j + 1].innerHTML == "💣")
-            count++;
+          if (i >= 0 && j + 1 < parseInt(row.value)) {
+            if (table.children[i].children[j + 1].innerHTML == "💣")
+              count++;
           }
-          if(i + 1 < parseInt(col.value) && j - 1 >= 0) {
-            if(table.children[i + 1].children[j - 1].innerHTML == "💣")
-            count++;
+          if (i + 1 < parseInt(col.value) && j - 1 >= 0) {
+            if (table.children[i + 1].children[j - 1].innerHTML == "💣")
+              count++;
           }
-          if(i + 1 < parseInt(col.value)) {
-            if(table.children[i + 1].children[j].innerHTML == "💣")
-            count++;
+          if (i + 1 < parseInt(col.value)) {
+            if (table.children[i + 1].children[j].innerHTML == "💣")
+              count++;
           }
-          if(i + 1 < parseInt(col.value) && j + 1 < parseInt(row.value)) {
-            if(table.children[i + 1].children[j + 1].innerHTML == "💣")
-            count++;
+          if (i + 1 < parseInt(col.value) && j + 1 < parseInt(row.value)) {
+            if (table.children[i + 1].children[j + 1].innerHTML == "💣")
+              count++;
           }
 
-          if(count !== 0) {
-            if(table.children[i].children[j].innerHTML !== "💣") {
+          if (count !== 0) {
+            if (table.children[i].children[j].innerHTML !== "💣") {
               table.children[i].children[j].innerHTML = `${count}`;
             }
           }
-            
+
         }
       }
 
