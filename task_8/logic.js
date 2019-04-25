@@ -98,61 +98,101 @@
             } else if (parseInt(`${td.innerHTML}`) > 0) {
               td.removeAttribute('id');
               td.classList.add('brown');
-
             } else {
-              let index = td.cellIndex;
+              // заливка 3х3 матрицы
+              function fill(td) {
+                let index = td.cellIndex;
 
-              // console.log(td.parentElement.previousSibling);
-              // console.log(td.parentElement.nextElementSibling);
-              // console.log(td.previousSibling);
+                if (td.parentElement.previousSibling != null && index - 1 >= 0) { 
+                  td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
+                  td.parentElement.previousSibling.children[index - 1].classList.add('brown');
+                }
 
-              if(td.parentElement.previousSibling != null && index - 1 >= 0) { // index < parseInt(row.value)
-                td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
-                td.parentElement.previousSibling.children[index - 1].classList.add('brown');
+                if (td.parentElement.previousSibling != null) {
+                  td.parentElement.previousSibling.children[index].removeAttribute('id');
+                  td.parentElement.previousSibling.children[index].classList.add('brown');
+                }
+
+                if (td.parentElement.previousSibling != null && index + 1 < parseInt(row.value)) {
+                  td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
+                  td.parentElement.previousSibling.children[index + 1].classList.add('brown');
+                }
+
+                if (td.previousSibling != null) {
+                  td.previousSibling.removeAttribute('id');
+                  td.previousSibling.classList.add('brown');
+                }
+
+                td.removeAttribute('id');
+                td.classList.add('brown');
+
+                if (td.nextElementSibling != null) {
+                  td.nextElementSibling.removeAttribute('id');
+                  td.nextElementSibling.classList.add('brown');
+                }
+
+                if (td.parentElement.nextElementSibling != null && index - 1 >= 0) {
+                  td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
+                  td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
+                }
+
+                if (td.parentElement.nextElementSibling != null) {
+                  td.parentElement.nextElementSibling.children[index].removeAttribute('id');
+                  td.parentElement.nextElementSibling.children[index].classList.add('brown');
+                }
+
+                if (td.parentElement.nextElementSibling != null && index + 1 < parseInt(row.value)) {
+                  td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
+                  td.parentElement.nextElementSibling.children[index + 1].classList.add('brown');
+                }
+
+                return td;
               }
 
-              if(td.parentElement.previousSibling != null) {
-                td.parentElement.previousSibling.children[index].removeAttribute('id');
-                td.parentElement.previousSibling.children[index].classList.add('brown');
+              // Flood fill
+              let stack = [];
+              let deletedFromStack = [];
+
+              let pressedTD = fill(td);
+
+              stack.push(pressedTD);
+
+              let x = 0;
+              let y = 0;
+
+              while (stack.length != 0) {
+                x = stack[stack.length - 1].parentElement.rowIndex;
+                y = stack[stack.length - 1].cellIndex;
+
+                deletedFromStack.push(stack.pop());
+
+                if(y + 1 < parseInt(row.value)) {
+                  if (table.children[x].children[y + 1].innerHTML == "" && deletedFromStack.indexOf(table.children[x].children[y + 1]) == -1) {
+                    stack.push(fill(table.children[x].children[y + 1]));
+                  }
+                }
+                
+                if(y - 1 >= 0) {
+                  if (table.children[x].children[y - 1].innerHTML == "" && deletedFromStack.indexOf(table.children[x].children[y - 1]) == -1) {
+                    stack.push(fill(table.children[x].children[y - 1]));
+                  }
+                }
+                
+                if(x - 1 >= 0) {
+                  if (table.children[x - 1].children[y].innerHTML == "" && deletedFromStack.indexOf(table.children[x - 1].children[y]) == -1) {
+                    stack.push(fill(table.children[x - 1].children[y]));
+                  }
+                }
+
+                if(x + 1 < parseInt(col.value)) {
+                  if (table.children[x + 1].children[y].innerHTML == "" && deletedFromStack.indexOf(table.children[x + 1].children[y]) == -1) {
+                    stack.push(fill(table.children[x + 1].children[y]));
+                  }
+                }
+                
               }
 
-              if(td.parentElement.previousSibling != null && index + 1 < parseInt(row.value)) {
-                td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
-                td.parentElement.previousSibling.children[index + 1].classList.add('brown');
-              }
-              
-              if(td.previousSibling != null) {
-                td.previousSibling.removeAttribute('id');
-                td.previousSibling.classList.add('brown');
-              }
 
-              td.removeAttribute('id');
-              td.classList.add('brown');
-
-              if(td.nextElementSibling != null) {
-                td.nextElementSibling.removeAttribute('id');
-                td.nextElementSibling.classList.add('brown');
-              }
-
-              if(td.parentElement.nextElementSibling != null && index - 1 >= 0) {
-                td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
-                td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
-              }
-
-              if(td.parentElement.nextElementSibling != null) {
-                td.parentElement.nextElementSibling.children[index].removeAttribute('id');
-                td.parentElement.nextElementSibling.children[index].classList.add('brown');
-              }
-
-              if(td.parentElement.nextElementSibling != null && index + 1 < parseInt(row.value)) {
-                td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
-                td.parentElement.nextElementSibling.children[index + 1].classList.add('brown');
-              }
-
-              // for(let i = 0; i < parseInt(col.value); i++) {
-              //   for (let j = 0; j < parseInt(row.value); j++) {
-              //   }
-              // }
 
             }
           });
@@ -234,6 +274,7 @@
         }
       }
 
+      // скрытие меню
       toggle.classList.remove("is-active");
       menu.style.top = "-400px";
       document.body.style.backgroundColor = "#fdfe41";
