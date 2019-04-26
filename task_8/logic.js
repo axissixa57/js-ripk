@@ -87,11 +87,11 @@
 
           function one() {
             // если на поле открыта бомба, убираем обработчик клика на ячейки, выходом из функции
-            for (let i = 0; i < parseInt(col.value); i++) {
-              for (let j = 0; j < parseInt(row.value); j++) {
-                if (table.children[i].children[j].classList.contains('red')) return;
-              }
-            }
+            // for (let i = 0; i < parseInt(col.value); i++) {
+            //   for (let j = 0; j < parseInt(row.value); j++) {
+            //     if (table.children[i].children[j].classList.contains('red')) return;
+            //   }
+            // }
 
             if (td.innerHTML == "💣") {
               // раскрытие всех бомб
@@ -112,8 +112,13 @@
                 let index = td.cellIndex;
 
                 if (td.parentElement.previousSibling != null && index - 1 >= 0) {
-                  td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
-                  td.parentElement.previousSibling.children[index - 1].classList.add('brown');
+                  if (td.previousSibling.innerHTML.length > 0 && td.parentElement.previousSibling.children[index].innerHTML.length > 0
+                    && td.parentElement.previousSibling.children[index - 1].innerHTML == "") {
+
+                  } else {
+                    td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
+                    td.parentElement.previousSibling.children[index - 1].classList.add('brown');
+                  }
                 }
 
                 if (td.parentElement.previousSibling != null) {
@@ -122,8 +127,13 @@
                 }
 
                 if (td.parentElement.previousSibling != null && index + 1 < parseInt(row.value)) {
-                  td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
-                  td.parentElement.previousSibling.children[index + 1].classList.add('brown');
+                  if (td.nextElementSibling.innerHTML.length > 0 && td.parentElement.previousSibling.children[index].innerHTML.length > 0
+                    && td.parentElement.previousSibling.children[index + 1].innerHTML == "") {
+
+                  } else {
+                    td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
+                    td.parentElement.previousSibling.children[index + 1].classList.add('brown');
+                  }
                 }
 
                 if (td.previousSibling != null) {
@@ -140,8 +150,13 @@
                 }
 
                 if (td.parentElement.nextElementSibling != null && index - 1 >= 0) {
-                  td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
-                  td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
+                  if (td.previousSibling.innerHTML.length > 0 && td.parentElement.nextElementSibling.children[index].innerHTML.length > 0
+                    && td.parentElement.nextElementSibling.children[index - 1].innerHTML == "") {
+
+                  } else {
+                    td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
+                    td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
+                  }
                 }
 
                 if (td.parentElement.nextElementSibling != null) {
@@ -150,8 +165,13 @@
                 }
 
                 if (td.parentElement.nextElementSibling != null && index + 1 < parseInt(row.value)) {
-                  td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
-                  td.parentElement.nextElementSibling.children[index + 1].classList.add('brown');
+                  if (td.nextElementSibling.innerHTML.length > 0 && td.parentElement.nextElementSibling.children[index].innerHTML.length > 0
+                    && td.parentElement.nextElementSibling.children[index + 1].innerHTML == "") {
+
+                  } else {
+                    td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
+                    td.parentElement.nextElementSibling.children[index + 1].classList.add('brown');
+                  }
                 }
 
                 return td;
@@ -227,7 +247,7 @@
               td.classList.add('grey');
             }
 
-            
+
           })
 
           tr.appendChild(td);
