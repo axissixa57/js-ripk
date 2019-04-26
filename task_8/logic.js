@@ -8,6 +8,7 @@
   const col = document.getElementById('col');
   const row = document.getElementById('row');
   const bomb = document.getElementById('bomb');
+  let counterBombs = 0;
 
   function toggleHandler(toggle) {
 
@@ -85,13 +86,25 @@
           const td = document.createElement('td');
           td.id = "green";
 
+          function win() {
+            for (let i = 0; i < parseInt(col.value); i++) {
+              for (let j = 0; j < parseInt(row.value); j++) {
+                if (table.children[i].children[j].id == "green" || table.children[i].children[j].classList.contains('red')) {
+                  return false;
+                }
+              }
+            }
+            return true;
+          }
+
           function one() {
-            // если на поле открыта бомба, убираем обработчик клика на ячейки, выходом из функции
-            // for (let i = 0; i < parseInt(col.value); i++) {
-            //   for (let j = 0; j < parseInt(row.value); j++) {
-            //     if (table.children[i].children[j].classList.contains('red')) return;
-            //   }
-            // }
+            //если на поле открыта бомба, убираем обработчик клика на ячейки, выходом из функции
+            for (let i = 0; i < parseInt(col.value); i++) {
+              for (let j = 0; j < parseInt(row.value); j++) {
+                if (table.children[i].children[j].classList.contains('red')) return;
+              }
+            } 
+
 
             if (td.innerHTML == "💣") {
               // раскрытие всех бомб
@@ -230,6 +243,7 @@
           // флажок
           td.addEventListener('contextmenu', function two(e) {
             e.preventDefault();
+
             // если на поле открыта бомба, убираем обработчик клика на ячейки, выходом из функции
             for (let i = 0; i < parseInt(col.value); i++) {
               for (let j = 0; j < parseInt(row.value); j++) {
@@ -241,14 +255,15 @@
               td.id = 'green';
               td.classList.remove('grey');
               td.addEventListener('click', one);
+              counterBombs--;
             } else {
+              if (counterBombs >= parseInt(bomb.value)) return;
               td.removeEventListener('click', one);
               td.removeAttribute('id');
               td.classList.add('grey');
+              counterBombs++;
             }
-
-
-          })
+          });
 
           tr.appendChild(td);
         }
@@ -261,17 +276,10 @@
         let colPos = Math.floor((Math.random() * parseInt(col.value)));
         let rowPos = Math.floor((Math.random() * parseInt(row.value)));
 
-        // if (!table.children[colPos].children[rowPos].classList.contains('red')) {
-        //   table.children[colPos].children[rowPos].classList.add('red');
-        //   table.children[colPos].children[rowPos].innerHTML = "💣";
-        //   numberOfBomb--;
-        // }
-
         if (table.children[colPos].children[rowPos].innerHTML != "💣") {
           table.children[colPos].children[rowPos].innerHTML = "💣";
           numberOfBomb--;
         }
-
       }
 
       // размещение цифр
@@ -329,6 +337,7 @@
       menu.style.top = "-400px";
       document.body.style.backgroundColor = "#fdfe41";
       sectionGame.style.display = "block";
+      counterBombs = 0;
     }
   });
 
