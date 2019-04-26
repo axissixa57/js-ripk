@@ -85,13 +85,21 @@
           const td = document.createElement('td');
           td.id = "green";
 
-          td.addEventListener('click', function one() {
+          function one() {
+            // если на поле открыта бомба, убираем обработчик клика на ячейки, выходом из функции
+            for (let i = 0; i < parseInt(col.value); i++) {
+              for (let j = 0; j < parseInt(row.value); j++) {
+                if (table.children[i].children[j].classList.contains('red')) return;
+              }
+            }
+
             if (td.innerHTML == "💣") {
               // раскрытие всех бомб
               for (let i = 0; i < parseInt(col.value); i++) {
                 for (let j = 0; j < parseInt(row.value); j++) {
                   if (table.children[i].children[j].innerHTML == "💣") {
                     table.children[i].children[j].removeAttribute('id');
+                    table.children[i].children[j].classList.add('red');
                   }
                 }
               }
@@ -99,24 +107,24 @@
               td.removeAttribute('id');
               td.classList.add('brown');
             } else {
-              // заливка крестом
+              // заливка 3x3 матрицы
               function fill(td) {
                 let index = td.cellIndex;
 
-                // if (td.parentElement.previousSibling != null && index - 1 >= 0) {
-                //   td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
-                //   td.parentElement.previousSibling.children[index - 1].classList.add('brown');
-                // }
+                if (td.parentElement.previousSibling != null && index - 1 >= 0) {
+                  td.parentElement.previousSibling.children[index - 1].removeAttribute('id');
+                  td.parentElement.previousSibling.children[index - 1].classList.add('brown');
+                }
 
                 if (td.parentElement.previousSibling != null) {
                   td.parentElement.previousSibling.children[index].removeAttribute('id');
                   td.parentElement.previousSibling.children[index].classList.add('brown');
                 }
 
-                // if (td.parentElement.previousSibling != null && index + 1 < parseInt(row.value)) {
-                //   td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
-                //   td.parentElement.previousSibling.children[index + 1].classList.add('brown');
-                // }
+                if (td.parentElement.previousSibling != null && index + 1 < parseInt(row.value)) {
+                  td.parentElement.previousSibling.children[index + 1].removeAttribute('id');
+                  td.parentElement.previousSibling.children[index + 1].classList.add('brown');
+                }
 
                 if (td.previousSibling != null) {
                   td.previousSibling.removeAttribute('id');
@@ -131,20 +139,20 @@
                   td.nextElementSibling.classList.add('brown');
                 }
 
-                // if (td.parentElement.nextElementSibling != null && index - 1 >= 0) {
-                //   td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
-                //   td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
-                // }
+                if (td.parentElement.nextElementSibling != null && index - 1 >= 0) {
+                  td.parentElement.nextElementSibling.children[index - 1].removeAttribute('id');
+                  td.parentElement.nextElementSibling.children[index - 1].classList.add('brown');
+                }
 
                 if (td.parentElement.nextElementSibling != null) {
                   td.parentElement.nextElementSibling.children[index].removeAttribute('id');
                   td.parentElement.nextElementSibling.children[index].classList.add('brown');
                 }
 
-                // if (td.parentElement.nextElementSibling != null && index + 1 < parseInt(row.value)) {
-                //   td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
-                //   td.parentElement.nextElementSibling.children[index + 1].classList.add('brown');
-                // }
+                if (td.parentElement.nextElementSibling != null && index + 1 < parseInt(row.value)) {
+                  td.parentElement.nextElementSibling.children[index + 1].removeAttribute('id');
+                  td.parentElement.nextElementSibling.children[index + 1].classList.add('brown');
+                }
 
                 return td;
               }
@@ -195,18 +203,31 @@
 
 
             }
-          });
+          }
+
+          td.addEventListener('click', one);
 
           // флажок
           td.addEventListener('contextmenu', function two(e) {
             e.preventDefault();
-            // if(td.classList.contains('grey')) {
-            //   td.classList.remove('grey');
-            //   td.innerHTML = "";
-            // }
-            td.removeAttribute('id');
-            td.classList.add('grey');
-            td.innerHTML = "🚩";
+            // если на поле открыта бомба, убираем обработчик клика на ячейки, выходом из функции
+            for (let i = 0; i < parseInt(col.value); i++) {
+              for (let j = 0; j < parseInt(row.value); j++) {
+                if (table.children[i].children[j].classList.contains('red')) return;
+              }
+            }
+
+            if (td.classList.contains('grey')) {
+              td.id = 'green';
+              td.classList.remove('grey');
+              td.addEventListener('click', one);
+            } else {
+              td.removeEventListener('click', one);
+              td.removeAttribute('id');
+              td.classList.add('grey');
+            }
+
+            
           })
 
           tr.appendChild(td);
@@ -220,8 +241,13 @@
         let colPos = Math.floor((Math.random() * parseInt(col.value)));
         let rowPos = Math.floor((Math.random() * parseInt(row.value)));
 
-        if (!table.children[colPos].children[rowPos].classList.contains('red')) {
-          table.children[colPos].children[rowPos].classList.add('red');
+        // if (!table.children[colPos].children[rowPos].classList.contains('red')) {
+        //   table.children[colPos].children[rowPos].classList.add('red');
+        //   table.children[colPos].children[rowPos].innerHTML = "💣";
+        //   numberOfBomb--;
+        // }
+
+        if (table.children[colPos].children[rowPos].innerHTML != "💣") {
           table.children[colPos].children[rowPos].innerHTML = "💣";
           numberOfBomb--;
         }

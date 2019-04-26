@@ -59,7 +59,7 @@ body>header {
 
 .menu {
     position: absolute;
-    top: -400px;
+    top: -450px;
     width: 400px;
     height: 430px;
     background: url('img/menu.png') no-repeat 0 0;
@@ -185,6 +185,8 @@ section.game table td {
     height: 30px;
     border: 1px solid #000;
     text-align: center;
+    cursor: pointer;
+    user-select: none;
 }
 
 #green {
@@ -206,14 +208,8 @@ section.game table td {
 }
 
 .grey {
-    background: #bdbdbd;
+    background: url('img/flag.png');
+    color: transparent;
 }
 
-/* .blue {
-    background:#0313ec;
-} */
-
-/* section.game table td:hover {
-    background-color: #3dac2c;
-} */
 
