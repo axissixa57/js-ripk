@@ -10,6 +10,13 @@
   const bomb = document.getElementById('bomb');
   let counterBombs = 0;
 
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      document.body.style.transition = ".5s ease-in-out";
+      menu.style.transition = ".5s ease-in-out";
+    },0);
+  });
+
   function toggleHandler(toggle) {
 
     toggle.addEventListener("click", function (e) {
