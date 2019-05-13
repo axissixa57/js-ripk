@@ -132,10 +132,28 @@ main {
 
 .right-side>.parallelogram {
     position: absolute;
-	width: 150px;
-	height: 100px;
-	-webkit-transform: skew(20deg);
-	   -moz-transform: skew(20deg);
-	     -o-transform: skew(20deg);
-	background: red;
+    width: 150px;
+    height: 100px;
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -o-transform: skew(20deg);
+    background: red;
+}
+
+.light {
+    animation: winking 1s ease-in-out 1s infinite alternate;
+}
+
+@keyframes winking {
+    0% {
+        box-shadow: 0 0 45px 20px #ff0000;
+    }
+
+    50% {
+        box-shadow: 0 0 20px 0 #000000;
+    }
+
+    100% {
+        box-shadow: 0 0 45px 20px #ff0000;
+    }
 }

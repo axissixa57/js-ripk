@@ -4,7 +4,8 @@ const color = ['#60E1AF', '#80D8FF', '#FFFF8D', '#FF8A80', '#CCFF90', '#CFD8DC',
 
 for (let i = 0; i < divUP.children.length; i++) {
     divUP.children[i].addEventListener('click', () => {
-        if (divUP.children[i].textContent == "Circle") {
+        if (divUP.children[i].textContent == "Circle") {   
+
             const randColor = Math.floor((Math.random() * 7));
             const randTop = Math.floor((Math.random() * 690));
             const randleft = Math.floor((Math.random() * 1200));
@@ -18,6 +19,13 @@ for (let i = 0; i < divUP.children.length; i++) {
             divRigthSide.appendChild(newCircle);
 
             newCircle.addEventListener('mousedown', (e) => {
+                for(const div of divRigthSide.children) {
+                    if(div.classList.contains('light')) {
+                        div.classList.remove('light');
+                    }
+                }
+
+                newCircle.classList.add('light');
                 // местонахождение круга в пределах divRigthSide, т.е. считывает координаты фигуры (круга) внутри блока divRigthSide, 
                 // например размер фигуры 200х200, находится в верхнем левом углу, то её координаты буду (0,0) вне зависимости, где тыкнуть внутри блока divRigthSide
                 // let x = parseInt(circleStyle.left.slice(0, -2));
@@ -62,6 +70,8 @@ for (let i = 0; i < divUP.children.length; i++) {
                     document.removeEventListener('mousemove', mouseMove);
                 });
             });
+
+            //console.log(divRigthSide.children.length);
         }
         if (divUP.children[i].textContent == "Square") {
             const randColor = Math.floor((Math.random() * 7));
@@ -77,6 +87,13 @@ for (let i = 0; i < divUP.children.length; i++) {
             divRigthSide.appendChild(newSquare);
 
             newSquare.addEventListener('mousedown', (e) => {
+                for(const div of divRigthSide.children) {
+                    if(div.classList.contains('light')) {
+                        div.classList.remove('light');
+                    }
+                }
+                newSquare.classList.add('light');
+
                 let x = parseInt(newSquare.style.left.slice(0, -2));
                 let y = parseInt(newSquare.style.top.slice(0, -2));
 
@@ -129,6 +146,13 @@ for (let i = 0; i < divUP.children.length; i++) {
             divRigthSide.appendChild(newRectangle);
 
             newRectangle.addEventListener('mousedown', (e) => {
+                for(const div of divRigthSide.children) {
+                    if(div.classList.contains('light')) {
+                        div.classList.remove('light');
+                    }
+                }
+                newRectangle.classList.add('light');
+
                 let x = parseInt(newRectangle.style.left.slice(0, -2));
                 let y = parseInt(newRectangle.style.top.slice(0, -2));
 
@@ -181,6 +205,13 @@ for (let i = 0; i < divUP.children.length; i++) {
             divRigthSide.appendChild(newTriangle);
 
             newTriangle.addEventListener('mousedown', (e) => {
+                for(const div of divRigthSide.children) {
+                    if(div.classList.contains('light')) {
+                        div.classList.remove('light');
+                    }
+                }
+                newTriangle.classList.add('light');
+
                 let x = parseInt(newTriangle.style.left.slice(0, -2));
                 let y = parseInt(newTriangle.style.top.slice(0, -2));
 
@@ -233,6 +264,13 @@ for (let i = 0; i < divUP.children.length; i++) {
             divRigthSide.appendChild(newParallelogram);
 
             newParallelogram.addEventListener('mousedown', (e) => {
+                for(const div of divRigthSide.children) {
+                    if(div.classList.contains('light')) {
+                        div.classList.remove('light');
+                    }
+                }
+                newParallelogram.classList.add('light');
+
                 let x = parseInt(newParallelogram.style.left.slice(0, -2));
                 let y = parseInt(newParallelogram.style.top.slice(0, -2));
 
