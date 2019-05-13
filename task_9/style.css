@@ -36,13 +36,11 @@ main {
     padding: 70px 30px 30px;
 }
 
-.left-side,
-.right-side {
+.left-side {
     flex: 1;
 }
-
-.left-side {
-    padding-top: 5px;
+.right-side {
+    flex: 4;
 }
 
 .left-side>div {
@@ -59,17 +57,6 @@ main {
 .down {
     position: relative;
     padding: 10px;
-}
-
-.up>div:nth-child(2)::after,
-.down>div:nth-child(2)::after {
-    content: '';
-    width: 100%;
-    border-bottom: solid 1px #000;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    z-index: 1;
 }
 
 .up>div {
@@ -116,12 +103,14 @@ main {
 
 .right-side > .circle {
     position: absolute;
-    height: 200px; 
-    width: 200px;
-    left: 200px; 
-    top: 300px;
+    height: 150px; 
+    width: 150px;
+    /* 0 - 780  */
+    /* left: 200px; */
+    /* 0 - 420  */
+    /* top: 300px; */
     border-radius: 50%;
     border: 1px solid #22223B;
-    background-color: #ffa500;
+    /* background-color: #ffa500; */
     cursor: grab;
 }

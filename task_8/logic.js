@@ -27,7 +27,7 @@
         document.body.style.backgroundColor = "#fdfe41";
       } else {
         this.classList.add("is-active");
-        menu.style.top = "320px";
+        menu.style.top = "270px";
         document.body.style.backgroundColor = "#0d6311";
         sectionGame.style.display = "none";
       }
