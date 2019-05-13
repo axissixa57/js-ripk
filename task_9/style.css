@@ -38,7 +38,9 @@ main {
 
 .left-side {
     flex: 1;
+    margin-right: 30px;
 }
+
 .right-side {
     flex: 4;
 }
@@ -61,6 +63,13 @@ main {
 
 .up>div {
     cursor: pointer;
+    text-align: center;
+    font-size: 2.5vh;
+    border: 1px solid black;
+}
+
+.up>div:hover {
+    background: #f74141;
 }
 
 .down>div {
@@ -101,16 +110,32 @@ main {
     border: 1px solid black;
 }
 
-.right-side > .circle {
+.right-side>.circle {
     position: absolute;
-    height: 150px; 
-    width: 150px;
-    /* 0 - 780  */
-    /* left: 200px; */
-    /* 0 - 420  */
-    /* top: 300px; */
     border-radius: 50%;
     border: 1px solid #22223B;
-    /* background-color: #ffa500; */
     cursor: grab;
+}
+
+.right-side>.square {
+    position: absolute;
+    border: 1px solid #22223B;
+    cursor: grab;
+}
+
+.right-side>.rectangle {
+    position: absolute;
+    border-style: solid;
+    border-width: 0 100px 150px 100px;
+    cursor: grab;
+}
+
+.right-side>.parallelogram {
+    position: absolute;
+	width: 150px;
+	height: 100px;
+	-webkit-transform: skew(20deg);
+	   -moz-transform: skew(20deg);
+	     -o-transform: skew(20deg);
+	background: red;
 }
