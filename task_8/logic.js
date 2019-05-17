@@ -209,8 +209,10 @@
               let y = 0;
 
               while (stack.length != 0) {
-                x = stack[stack.length - 1].parentElement.rowIndex;
-                y = stack[stack.length - 1].cellIndex;
+                x = stack[stack.length - 1].parentElement.rowIndex; // tr
+                y = stack[stack.length - 1].cellIndex; // td
+
+                // console.log({x, y});
 
                 deletedFromStack.push(stack.pop());
 
@@ -226,9 +228,30 @@
                   }
                 }
 
+                // new
+                if (x - 1 >= 0 && y - 1 >= 0) {
+                  if (table.children[x - 1].children[y - 1].innerHTML == "" && deletedFromStack.indexOf(table.children[x - 1].children[y - 1]) == -1) {
+                    stack.push(fill(table.children[x - 1].children[y - 1]));
+                  }
+                }
+
                 if (x - 1 >= 0) {
                   if (table.children[x - 1].children[y].innerHTML == "" && deletedFromStack.indexOf(table.children[x - 1].children[y]) == -1) {
                     stack.push(fill(table.children[x - 1].children[y]));
+                  }
+                }
+
+                // new
+                if (x - 1 >= 0 && y + 1 < parseInt(row.value)) {
+                  if (table.children[x - 1].children[y + 1].innerHTML == "" && deletedFromStack.indexOf(table.children[x - 1].children[y + 1]) == -1) {
+                    stack.push(fill(table.children[x - 1].children[y + 1]));
+                  }
+                }
+
+                // new
+                if (x + 1 < parseInt(col.value) && y - 1 >= 0) {
+                  if (table.children[x + 1].children[y - 1].innerHTML == "" && deletedFromStack.indexOf(table.children[x + 1].children[y - 1]) == -1) {
+                    stack.push(fill(table.children[x + 1].children[y - 1]));
                   }
                 }
 
@@ -238,9 +261,13 @@
                   }
                 }
 
+                // new
+                if (x + 1 < parseInt(col.value) && y + 1 < parseInt(row.value)) {
+                  if (table.children[x + 1].children[y + 1].innerHTML == "" && deletedFromStack.indexOf(table.children[x + 1].children[y + 1]) == -1) {
+                    stack.push(fill(table.children[x + 1].children[y + 1]));
+                  }
+                }
               }
-
-
 
             }
           }
